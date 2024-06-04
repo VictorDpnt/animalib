@@ -1,0 +1,71 @@
+.body {
+  font-family: $body-font;
+  background-color: $white;
+  display: flex;
+  height: 40vh;
+}
+
+.modal-content {
+  background-color: $light-green;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: relative;
+}
+
+.modal-header {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6;
+  margin: 0px;
+}
+
+.modal-title {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.btn-close {
+  border: none;
+  font-size: 24px;
+  color: $black;
+}
+
+.container {
+  width: 100%;
+}
+
+.form-control {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.modal-footer {
+  flex-direction: column;
+}
+
+.btn-dark {
+  background-color: #000;
+  color: $white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+a {
+  color:$white ;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #333;
+}

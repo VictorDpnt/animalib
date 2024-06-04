@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-8 my-3 form-outline" data-mdb-input-init>
+    <%= form_with url: users_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control border border-light border-3 bg bg-light text-black rounded-left nav ps-3",
+          placeholder: "Find your professional"
+      %>
+    <%= submit_tag "Search", name: "", class: "border-start-0 border-light border-3 btn-search btn btn-lg btn-dark rounded-right nav-btn" %>
+      <%# <i class="fa-solid fa-magnifying-glass"></i> %>
+    <% end %>
+  </div>
+</div>

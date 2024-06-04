@@ -1,15 +1,18 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 80px 0;
+  border-bottom-left-radius: 80px 80px;
+  border-bottom-right-radius: 80px 80px;
 }
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 48px;
   font-weight: bold;
+  font-family: $headers-font;
 }
 
 .banner p {
@@ -17,4 +20,10 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  animation: animate 2s linear forwards;
+}
+
+#query {
+  box-shadow: none !important;
+  outline: none !important;
 }
