@@ -18,6 +18,7 @@ class UsersController < ApplicationController
         lat: profesional.latitude,
         lng: profesional.longitude
       }
+    end
   end
 
   def show
