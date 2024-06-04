@@ -1,8 +1,8 @@
 class Animal < ApplicationRecord
   has_one_attached :photo
-
+  has_many :bookings, dependent: :destroy
   belongs_to :user
-  has_many :health_records
+  has_many :health_records, dependent: :destroy
   validates :name, :specie, presence: true
 
   def age
