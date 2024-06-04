@@ -1,5 +1,5 @@
 class HealthRecordsController < ApplicationController
-before_action :set_record, only: [:update, :destroy]
+  before_action :set_record, only: [:update, :destroy]
 
   def index
     @healthrecords = HealthRecord.all
@@ -24,7 +24,7 @@ before_action :set_record, only: [:update, :destroy]
 
   def update
     if @healthrecord.update(healthrecord_params)
-    redirect_to @healthrecord, notice: 'Record has been updated'
+      redirect_to @healthrecord, notice: 'Record has been updated'
     else
       render :edit
     end
