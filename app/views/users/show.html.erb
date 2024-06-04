@@ -1,5 +1,16 @@
 <h1> Show users </h1>
+  <% if @professional.photo.attached? %>
+    <%= cl_image_tag professional.photo.key %>
+  <% else %>
+    <%= image_tag "veto.jpeg", width: 400, height: 400, crop: :fill, class: "circular-image" %>
+  <%end%>
 
- <% @professional.photos.each do |photo| %>
-   <%= cl_image_tag photo.path, width: 400, height: 200, crop: :fill %>
-   <% end %>
+
+<div>
+<h5> <strong> <%= @professional.company_name %> </strong> </h5>
+<h6> Dr. <%= @professional.first_name.capitalize %> <%= @professional.last_name.capitalize %> </h6>
+<h6> <%= @professional.profession.capitalize %> </h6>
+<h6> <%= @professional.description %> </h6>
+
+
+</div>
