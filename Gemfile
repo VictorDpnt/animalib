@@ -79,3 +79,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# compute time slots
+gem "slot_machine"

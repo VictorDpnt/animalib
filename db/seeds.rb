@@ -18,5 +18,5 @@ user2 = User.create!(
 
 animal1 = Animal.create!(name: "Happy", birthdate: "2024-03-01", specie: "dog", breed: "golden", user: user1)
 
-Booking.create!(date: "2024-07-01", user: user2, animal: animal1, reason: "Castration des coucouilles")
-Booking.create!(date: "2024-07-01", user: user2, animal: animal1, reason: "Problème gastrique")
+Booking.create!(date: Time.parse("#{Date.tomorrow.to_s} 16:00"), user: user2, animal: animal1, reason: "Castration des coucouilles")
+Booking.create!(date: Time.parse("#{Date.tomorrow.to_s} 18:00"), user: user2, animal: animal1, reason: "Problème gastrique")
