@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.where(profession: nil)
     @professionals = User.where.not(profession: nil)
