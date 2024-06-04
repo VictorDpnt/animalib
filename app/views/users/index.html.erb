@@ -1,7 +1,11 @@
 <h1>All professionnals</h1>
 
 <% @professionals.each do |professional| %>
-  <%= professional.photo %>
+  <% if professional.photo.attached? %>
+    <%= cl_image_tag professional.photo.key %>
+  <% else %>
+    <%= image_tag "veto.jpeg", width: 400, height: 400, crop: :fill %>
+  <%end%>
   <%= professional.first_name %>
   <%= professional.profession %>
   <% end %>
