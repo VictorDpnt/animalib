@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_one_attached :photo
 
-  has_many :animals
+  has_many :animals, dependent: :destroy
   has_many :bookings
   validates :first_name, :last_name, :email, :address, presence: true
 
