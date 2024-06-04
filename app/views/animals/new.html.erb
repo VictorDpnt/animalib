@@ -1,0 +1,13 @@
+<div class="container p-2">
+  <h1>Your animal</h1>
+        <%= simple_form_for @animal do |f| %>
+          <%= f.input :name %>
+          <%= f.input :birthdate,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } } %>
+          <%= f.input :specie %>
+          <%= f.input :breed %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+          <%= link_to "Create your animal", profile_path %>
+        <% end %>
+</div>
