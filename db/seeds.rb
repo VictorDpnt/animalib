@@ -1,5 +1,7 @@
-
 User.destroy_all
 Animal.destroy_all
 
-User.create!(email: "test@test.com", first_name: "victor", last_name: "dupont", address: "16 villa gaudelet", phone_number: "0628073198")
+user1 = User.create!(email: "test@test.com", password: "azerty", first_name: "Victor", last_name: "Dupont", address: "16 villa gaudelet", phone_number: "0628073198")
+user2 = User.create!(email: "pro@pro.com", password: "azerty", first_name: "Prunelle", last_name: "Leclerc", address: "16 avenue Jean Jaurès", phone_number: "0675654776", profession: "veterinarian", company_name: "Cabinet Vétérinaire de Paris")
+
+Animal.create!(name: "Happy", birthdate: "2024-03-01", specie: "dog", breed: "golden", user: user1)
