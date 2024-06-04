@@ -1,14 +1,7 @@
-<h1> Users/Professionals </h1>
+<h1>All professionnals</h1>
 
-<% if current_user = @users%>
-  <% @users.each do |user|%>
-  <%= user.first_name %>
-  <%= user.last_name %>
-  <%= user.address %>
-  <% end %>
-<% else current_user = @professionals %>
-  <% @professionals.each do |professional|%>
+<% @professionals.each do |professional| %>
+  <%= professional.photo %>
   <%= professional.first_name %>
   <%= professional.profession %>
   <% end %>
-<% end %>
