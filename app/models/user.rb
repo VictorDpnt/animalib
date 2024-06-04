@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   has_one_attached :photo
 
-  has_many :animals
-  has_many :bookings
+  has_many :animals, dependent: :destroy
+
+  has_many :bookings, dependent: :destroy
+
   validates :first_name, :last_name, :email, :address, presence: true
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Must be a valid email address" }
