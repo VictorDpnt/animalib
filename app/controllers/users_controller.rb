@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         OR users.profession ILIKE :query
       SQL
       @professionals = @professionals.where(sql_subquery, query: "%#{params[:query]}%")
-    end
+      end
 
     @markers = @professionals.geocoded.map do |profesional|
       {
