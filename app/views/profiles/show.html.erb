@@ -9,15 +9,27 @@
       <li><i class="fa-solid fa-location-dot"></i><%= current_user.address %></li>
     </ul>
   </div>
-  <div class="my-pets">
+
+  <div class="title-pets">
     <h1 class="text-center mt-3">My Pets</h1>
+    <p><i class="fa-solid fa-circle-plus"></i></p>
+  </div>
+
+
+  <div class="my-pets">
     <% current_user.animals.each do |animal| %>
       <div class="card-pet">
+        <div class="img-avatar">
+         <% if animal.photo.attached? %>
+          <%= cl_image_tag animal.photo.key %>
+         <% else %>
+          <%= image_tag "Avatar_animal" %>
+         <% end %>
+        </div>
         <div class="pet-info">
-          <p><%= animal.name %></p>
-          <p><%= animal.birthdate %></p>
-          <p><%= animal.breed %></p>
-          <p><%= animal.specie %></p>
+          <p><%= animal.name.capitalize %></p>
+          <p><%= animal.specie.capitalize %> (<em><%= animal.breed.capitalize %></em>)</p>
+          <p><%= animal.age %> Years Old</p>
         </div>
       </div>
     <% end %>
