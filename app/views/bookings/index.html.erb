@@ -1,0 +1,9 @@
+<% @bookings.each do |booking| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= booking.reason %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= booking.date %></h6>
+      <p>Taken care of by: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", user_path(booking.user) %></p>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="container profile">
+  <h1 class="text-center mt-3">My Profile</h1>
+  <div class="infos-user-profile">
+    <i class="fa-solid fa-user-pen edit-icon"></i>
+    <ul>
+      <li><i class="fa-solid fa-user"></i><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></li>
+      <li><i class="fa-solid fa-phone"></i><%= current_user.phone_number %></li>
+      <li><i class="fa-solid fa-envelope"></i><%= current_user.email %></li>
+      <li><i class="fa-solid fa-location-dot"></i><%= current_user.address %></li>
+    </ul>
+  </div>
+  <div class="my-pets">
+    <h1 class="text-center mt-3">My Pets</h1>
+    <% current_user.animals.each do |animal| %>
+      <div class="card-pet">
+        <div class="pet-info">
+          <p><%= animal.name %></p>
+          <p><%= animal.birthdate %></p>
+          <p><%= animal.breed %></p>
+          <p><%= animal.specie %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
