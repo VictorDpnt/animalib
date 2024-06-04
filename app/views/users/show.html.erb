@@ -1,1 +1,46 @@
-<h1> Show users </h1> 
+<div class="container">
+
+ <h1> Show users </h1>
+
+ <div class="header-pro">
+  <div class="infos">
+    <div class="img-container">
+      <% if @professional.photo.attached? %>
+        <%= cl_image_tag professional.photo.key %>
+      <% else %>
+        <%= image_tag "veto.jpeg", class: "circular-image" %>
+      <%end%>
+    </div>
+    <h5> <strong> <%= @professional.company_name.upcase %> </strong> </h5>
+    <h6> Dr. <%= @professional.first_name.capitalize %> <%= @professional.last_name.capitalize %> </h6>
+    <h6> <%= @professional.profession.capitalize %> </h6>
+    <h6> <%= @professional.description %> </h6>
+  </div>
+</div>
+
+<div class="card-info">
+  <div class="card-details">
+    <h6><strong> Address </strong></h6>
+    <h6> <%= @professional.address %> </h6>
+  </div>
+   <div class="card-details">
+    <h6><strong> Phone number </strong></h6>
+    <h6> <%= @professional.phone_number %> </h6>
+  </div>
+  <div class="card-details">
+    <h6><strong> Email </strong></h6>
+    <h6> <%= @professional.email %> </h6>
+  </div>
+</div>
+
+<div>
+
+
+  
+</div>
+
+
+
+
+
+</div>

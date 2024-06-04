@@ -1,14 +1,11 @@
-<h1> Users/Professionals </h1>
+<h1>All professionnals</h1>
 
-<% if current_user = @users%>
-  <% @users.each do |user|%>
-  <%= user.first_name %>
-  <%= user.last_name %>
-  <%= user.address %>
-  <% end %>
-<% else current_user = @professionals %>
-  <% @professionals.each do |professional|%>
+<% @professionals.each do |professional| %>
+  <% if professional.photo.attached? %>
+    <%= cl_image_tag professional.photo.key %>
+  <% else %>
+    <%= image_tag "veto.jpeg", width: 400, height: 400, crop: :fill %>
+  <%end%>
   <%= professional.first_name %>
   <%= professional.profession %>
   <% end %>
-<% end %>

@@ -11,12 +11,44 @@
   </div>
 
   <div class="title-pets">
+
     <% if current_user.animals.any? %>
       <h1 class="text-center mt-3">My Pets</h1>
     <% else %>
       <h1 class="text-center mt-3">Add my first pet</h1>
     <% end %>
-    <p><i class="fa-solid fa-circle-plus"></i></p>
+   
+
+    
+    <p type="button" class="fa-solid fa-circle-plus" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    </p>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Your animal</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="container p-2">
+              <%= simple_form_for @animal do |f| %>
+                  <%= f.input :name %>
+                  <%= f.input :birthdate,
+                              as: :string,
+                              input_html: { data: { controller: "datepicker" } } %>
+                  <%= f.input :specie %>
+                  <%= f.input :breed %>
+                  <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+              <% end %>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark"><%= link_to "Create your animal", profile_path %></button>
+        </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 

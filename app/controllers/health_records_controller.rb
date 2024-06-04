@@ -1,18 +1,21 @@
 class HealthRecordsController < ApplicationController
+  before_action :set_record, only: [:update, :destroy]
+
   def index
-    @animal = Animal.find(params[:id])
     @healthrecords = HealthRecord.all
   end
 
   def new
-    @animal = Animal.find(params[:id])
     @healthrecord = HealthRecord.new
   end
 
   def create
-    @animal = Animal.find(params[:id])
     @healthrecord = HealthRecord.new(healthrecord_params)
-    @healthrecord.save
+    if @healthrecord.save
+      redirect_to @healthrecord, notice: 'Record has been created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,18 +23,23 @@ class HealthRecordsController < ApplicationController
   end
 
   def update
-    @healthrecord = HealthRecord.find(params[:id])
-    @healthrecord.update(healthrecord_params)
-    redirect_to health_record_path(@healthrecord)
+    if @healthrecord.update(healthrecord_params)
+      redirect_to @healthrecord, notice: 'Record has been updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @healthrecord = HealthRecord.find(params[:id])
     @healthrecord.destroy
     redirect_to health_record_path(@healthrecord.animal), status: :see_other
   end
 
   private
+
+  def set_record
+    @healthrecord = HealthRecord.find(params[:id])
+  end
 
   def healthrecord_params
     params.require(:healthrecord).permit(:history)
