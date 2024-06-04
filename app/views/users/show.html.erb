@@ -1,5 +1,9 @@
 <h1> Show users </h1>
 
- <% @professional.photos.each do |photo| %>
-   <%= cl_image_tag photo.path, width: 400, height: 200, crop: :fill %>
-   <% end %>
+   <%= cl_image_tag @professional.photo.key, width: 400, height: 200, crop: :fill %>
+
+<div>
+<h4></h4>
+<h5></h5>
+
+</div>

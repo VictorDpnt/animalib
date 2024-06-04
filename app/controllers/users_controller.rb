@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @bookings = @user.bookings
+    @professional = User.find(params[:id])
+    @bookings = @professional.bookings
   end
 end
