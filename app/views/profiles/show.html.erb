@@ -11,7 +11,11 @@
   </div>
 
   <div class="title-pets">
-    <h1 class="text-center mt-3">My Pets</h1>
+    <% if current_user.animals.any? %>
+      <h1 class="text-center mt-3">My Pets</h1>
+    <% else %>
+      <h1 class="text-center mt-3">Add my first pet</h1>
+    <% end %>
     <p><i class="fa-solid fa-circle-plus"></i></p>
   </div>
 
@@ -34,4 +38,18 @@
       </div>
     <% end %>
   </div>
+
+  <h1 class="text-center mt-5">My Bookings</h1>
+
+  <div class="bookings-container">
+    <% current_user.animals.each do |a| %>
+      <% if a.bookings.any? %>
+        <%# <h1 class="text-center mt-5">My bookings</h1> %>
+        <% a.bookings.each do |booking| %>
+          <%= render 'bookings/my_bookings', booking: booking %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

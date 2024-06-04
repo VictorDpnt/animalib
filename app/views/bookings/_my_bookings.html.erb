@@ -1,0 +1,35 @@
+<div class="my-bookings-container">
+  <h1 class="text-center"><%= booking.animal.name.capitalize %></h1>
+
+  <div class="info-veto">
+
+    <div class="name-date">
+      <div class="name">
+        <div class="img-veto">
+          <% if booking.animal.photo.attached? %>
+            <%= cl_image_tag booking.animal.photo.key %>
+          <% else %>
+            <%= image_tag "veterinaire" %>
+          <% end %>
+        </div>
+        <div class="profession">
+          <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+          <em><%= booking.user.profession.capitalize %></em>
+        </div>
+      </div>
+    </div>
+
+    <div class="coordonnees">
+      <p><strong>Date:</strong> <%= booking.date %></p>
+      <p><strong>Address:</strong> <%= booking.user.address %></p>
+      <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
+      <p><strong>Email:</strong> <%= booking.user.email %></p>
+    </div>
+
+    <div class="cancel-container">
+      <p class="cancel text-center">Cancel</p>
+    </div>
+
+  </div>
+
+</div>
