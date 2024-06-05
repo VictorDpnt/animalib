@@ -1,0 +1,32 @@
+
+.souscontainer {
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  justify-content: center;
+
+  .slotcontainer {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+
+    .days {
+      margin-bottom: 20px;
+      text-align: center;
+
+
+
+    }
+  }
+}
+
+.availableslots {
+  padding: 10px;
+  color: black;
+  background-color: $light-grey;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  width: 80px;
+  text-align: center;
+
+}
