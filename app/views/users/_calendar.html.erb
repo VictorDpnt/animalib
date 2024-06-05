@@ -8,7 +8,7 @@
             <% min = slot_data[:slot].start.to_s.match(/(\d{2})$/)&.captures&.first %>
             <% hour = slot_data[:slot].start.to_s.gsub(/(\d{2})$/, "") %>
             <% datetime = Time.parse("#{day_data[:date].to_s} #{hour}:#{min}") %>
-            <%= link_to "#{hour}h#{min}", new_user_booking_path(@professional, date: datetime), class: "btn btn-primary" %>
+            <%= link_to "#{hour}h#{min}", new_user_booking_path(@professional, date: datetime), class: "btn btn-success" %>
           </div>
         <% else %>
           <div>-</div>

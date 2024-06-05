@@ -5,18 +5,16 @@ class BookingsController < ApplicationController
   end
 
   def new
-    set_user
-    @booking = Booking.new
+    set_professional
+    @booking = Booking.new(date: params[:date])
   end
 
   def create
-    set_user
-    set_animal
+    set_professional
     @booking = Booking.new(booking_params)
-    @booking.user = @user
-    @booking.animal = @animal
+    @booking.user = @professional
     if @booking.save
-      redirect_to animal_path(@animal)
+      redirect_to animal_health_records_path(@booking.animal)
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,8 +39,8 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
+  def set_professional
+    @professional = User.find(params[:user_id])
   end
 
   def set_animal
@@ -50,6 +48,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :reason)
+    params.require(:booking).permit(:animal_id, :date, :reason)
   end
 end

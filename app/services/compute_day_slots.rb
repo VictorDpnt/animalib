@@ -19,7 +19,7 @@ class ComputeDaySlots
     end
   end
 
-  # private
+  private
 
   def booking_slot(booking)
     return unless booking.is_a?(Booking)
@@ -29,7 +29,6 @@ class ComputeDaySlots
 
     booking_hours_match.captures&.first&.gsub(":", "")&.to_i
   end
-
 end
 
 # paramètres d'entrée
@@ -38,3 +37,5 @@ end
 # - horaires de pause
 # - durée d'un slot
 # - bookings
+
+ComputeDaySlots.new(slot_duration: 15).call
