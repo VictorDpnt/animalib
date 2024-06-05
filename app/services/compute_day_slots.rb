@@ -13,7 +13,10 @@ class ComputeDaySlots
     
     booking_slots = @bookings.map { |booking| booking_slot(booking) }
                              .compact
-    @time_slots = @time_slots.reject { |slot| slot.start.in?(booking_slots) }
+    
+    @time_skots = @time_slots.map do |slot|
+      { slot: slot, available: !slot.start.in?(booking_slots) }
+    end
   end
 
   private
