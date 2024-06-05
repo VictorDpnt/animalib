@@ -13,10 +13,8 @@ class HealthRecordsController < ApplicationController
 
   def create
     @animal = Animal.find(params[:animal_id])
-    @booking = Booking.find(params[:booking_id])
     @healthrecord = HealthRecord.new(healthrecord_params)
     @healthrecord.animal = @animal
-    @healthrecord.booking = @booking
     if @healthrecord.save
       redirect_to animal_health_records_path(@animal), notice: 'Record has been created.'
     else
@@ -48,6 +46,6 @@ class HealthRecordsController < ApplicationController
   end
 
   def healthrecord_params
-    params.require(:health_record).permit(:history, :animal_id, :booking_id)
+    params.require(:health_record).permit(:history, :animal_id)
   end
 end

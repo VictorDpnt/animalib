@@ -1,0 +1,15 @@
+<div class="my-record-container">
+ <div class="flex-container">
+  <h1><i class="fa-solid fa-book-medical"></i> Healthrecord of <%= @animal.name %></h1>
+  <a href="<%= new_animal_health_record_path(@animal) %>" class="add-record-button">
+    <i class="fa-solid fa-folder-plus"></i></a>
+ </div>
+    <div class="info-record">
+     <h4>Description</h4>
+      <% @healthrecords.each do |record| %>
+        <div class="record-description">
+          <%= record.history %>
+        </div>
+      <% end %>
+    </div>
+</div>
