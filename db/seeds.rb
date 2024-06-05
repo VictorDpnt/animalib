@@ -27,7 +27,7 @@ pro2 = User.create!(
   description: "Je promène vos chiens et chats !"
 )
 
-animal1 = Animal.create!(name: "Happy", birthdate: "2024-03-01", specie: "dog", breed: "golden", user: user1)
+animal1 = Animal.create!(name: "Happy", birthdate: "2024-03-01", specie: "Dog", breed: "golden", user: user1)
 
 Booking.create!(date: "2024-07-01", user: pro1, animal: animal1, reason: "Castration des coucouilles")
 Booking.create!(date: "2024-07-01", user: pro2, animal: animal1, reason: "Problème gastrique")
