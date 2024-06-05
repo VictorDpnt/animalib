@@ -1,5 +1,6 @@
 class ComputeNextDaysSlots
-  def initialize(start_date: Date.today, nb_of_days: 5)
+  def initialize(user:, start_date: Date.today, nb_of_days: 5)
+    @user = user
     @days = [start_date]
     (nb_of_days - 1).times do |i|
       @days << @days.last.next_weekday
@@ -17,7 +18,11 @@ class ComputeNextDaysSlots
 
   private
 
+  def bookings
+    @bookings ||= @user.bookings_as_professional
+  end
+
   def day_bookings(day)
-    Booking.where(date: day.beginning_of_day..day.end_of_day)
+    bookings.where(date: day.beginning_of_day..day.end_of_day)
   end
 end
