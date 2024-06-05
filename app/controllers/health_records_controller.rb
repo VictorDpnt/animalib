@@ -2,7 +2,8 @@ class HealthRecordsController < ApplicationController
   before_action :set_record, only: [:update, :destroy]
 
   def index
-    @healthrecords = HealthRecord.all
+    @animal = Animal.find(params[:animal_id])
+    @healthrecords = @animal.health_records
   end
 
   def new
@@ -11,11 +12,13 @@ class HealthRecordsController < ApplicationController
   end
 
   def create
+    @animal = Animal.find(params[:animal_id])
+    @booking = Booking.find(params[:booking_id])
     @healthrecord = HealthRecord.new(healthrecord_params)
     @healthrecord.animal = @animal
-
+    @healthrecord.booking = @booking
     if @healthrecord.save
-      redirect_to @healthrecord, notice: 'Record has been created.'
+      redirect_to animal_health_records_path(@animal), notice: 'Record has been created.'
     else
       render :new
     end
@@ -26,14 +29,14 @@ class HealthRecordsController < ApplicationController
   end
 
   def update
-    if @healthrecord.update(healthrecord_params)
-      redirect_to @healthrecord, notice: 'Record has been updated'
-    else
-      render :edit
-    end
+    @booking = Booking.find(params[:booking_id])
+    @animal = Animal.find(params[:animal_id])
+    @healthrecord.update(healthrecord_params)
+    redirect_to @healthrecord
   end
 
   def destroy
+    @healthrecord = HealthRecord.find(params[:id])
     @healthrecord.destroy
     redirect_to health_record_path(@healthrecord.animal), status: :see_other
   end
@@ -45,6 +48,6 @@ class HealthRecordsController < ApplicationController
   end
 
   def healthrecord_params
-    params.require(:healthrecord).permit(:history, :animal_id, :booking_id)
+    params.require(:health_record).permit(:history, :animal_id, :booking_id)
   end
 end

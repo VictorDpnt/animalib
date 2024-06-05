@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Healthrecords</h1>
-    <%= simple_form_for @healthrecord, new_animal_health_record_path(@animal) do |f| %>
+    <%= simple_form_for [@animal, @healthrecord] do |f| %>
       <%= f.input :history %>
       <%= f.submit "Create a record" %>
     <% end %>

@@ -74,8 +74,14 @@
     align-items: center;
     width: 80%;
 
+
     .underline {
       text-decoration: underline;
     }
   }
+
+  a {
+    color: $black;
+    text-decoration: none;
+}
 }
