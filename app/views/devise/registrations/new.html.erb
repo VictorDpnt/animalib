@@ -8,6 +8,9 @@
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :address %>
+      <%= f.input :profession, collection: User::PROFESSION %>
+      <%= f.input :company_name %>
+      <%= f.input :description %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
