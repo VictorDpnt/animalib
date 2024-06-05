@@ -1,13 +1,22 @@
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3 form-outline" data-mdb-input-init>
-    <%= form_with url: users_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: users_path, method: :get, class: "d-flex" do |f| %>
       <% icon = "<i class='fa-solid fa-magnifying-glass'></i>" %>
       <%= text_field_tag :query,
           params[:query],
-          class: "form-control nav border border-light border-3 border-end-0",
-          placeholder: "Find your professional"
+          class: "form-control nav border border-light border-2 border-end-0",
+          placeholder: "Search by name"
       %>
-    <%= submit_tag "Search", name: "", class: "btn btn-dark rounded-right border border-light border-3 nav-btn" %>
+      <%= text_field_tag :address,
+          params[:address],
+          class: "form-control nav-loc border border-light border-2 border-end-0",
+          placeholder: "Where?"
+      %>
+      <%= f.select :profession,
+      options_for_select(User.where.not(profession: nil).map { |u| [ u.profession ] }.unshift(["Select a profession", ""]), selected: params[:profession]), {}, class: "form-select mx-1",
+      class: "profession border border-light border-2 border-end-0"
+      %>
+    <%= submit_tag "Search", name: "", class: "btn rounded-right border border-light border-2 nav-btn text-light px-4" %>
     <% end %>
   </div>
 </div>
