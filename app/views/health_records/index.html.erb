@@ -1,5 +1,12 @@
-<ul>
-  <% @healthrecords.each do |record| %>
-    <li><%= record.history %></li>
-  <% end %>
-</ul>
+<div class="container mt-5">
+  <%= render 'animals/header_animal', animal: @healthrecords %>
+</div>
+
+<div class="big-container-records">
+  <div class="records-container">
+    <% @healthrecords.each do |record| %>
+      <h1>Health Records for <%= @animal.name %></h1>
+      <li><%= record.history %></li>
+    <% end %>
+  </div>
+</div>
