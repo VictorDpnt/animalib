@@ -28,8 +28,9 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
+    set_animal
     @animal.destroy
-    redirect_to animals_url, notice: 'Animal was successfully destroyed.'
+    redirect_to profile_path, notice: 'Animal was successfully destroyed.'
   end
 
   private
