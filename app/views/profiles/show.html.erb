@@ -17,9 +17,9 @@
     <% else %>
       <h1 class="text-center mt-3">Add my first pet</h1>
     <% end %>
-   
 
-    
+
+
     <p type="button" class="fa-solid fa-circle-plus" data-bs-toggle="modal" data-bs-target="#exampleModal">
     </p>
   </div>
@@ -65,7 +65,7 @@
         <div class="pet-info">
           <p><%= animal.name.capitalize %></p>
           <p><%= animal.specie.capitalize %> (<em><%= animal.breed.capitalize %></em>)</p>
-          <p><%= animal.age %> Years Old</p>
+          <p><%= animal.age ? "#{animal.age} Years Old" : "" %></p>
         </div>
       </div>
     <% end %>
