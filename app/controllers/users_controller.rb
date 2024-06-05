@@ -11,12 +11,13 @@ class UsersController < ApplicationController
         OR users.profession ILIKE :query
       SQL
       @professionals = @professionals.where(sql_subquery, query: "%#{params[:query]}%")
-    end
+      end
 
-    @markers = @professionals.geocoded.map do |profesional|
+    @markers = @professionals.geocoded.map do |professional|
       {
-        lat: profesional.latitude,
-        lng: profesional.longitude
+        lat: professional.latitude,
+        lng: professional.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { professional: professional })
       }
     end
   end
