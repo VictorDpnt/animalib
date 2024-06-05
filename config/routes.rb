@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   resource :profile, only: :show
 
   resources :animals, except: [:index, :show] do
-    resources :health_record, only: [:new, :create, :index]
+    resources :health_records, only: [:new, :create, :index]
     resources :documents, only: :index
     resources :bookings, only: :index
   end
 
-  resources :health_record, only: [:edit, :update, :destroy]
+  resources :health_records, only: [:edit, :update, :destroy]
 end

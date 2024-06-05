@@ -39,9 +39,14 @@
 </div>
 
 
-<div>
   <h1> Maps </h1>
-</div>
+
+
+  <div style="width: 80%; height: 350px; margin: 0 auto; margin-bottom: 100px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 
 
 </div>
