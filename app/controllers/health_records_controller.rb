@@ -13,8 +13,10 @@ class HealthRecordsController < ApplicationController
 
   def create
     @animal = Animal.find(params[:animal_id])
+    @booking = Booking.find(params[:booking_id])
     @healthrecord = HealthRecord.new(healthrecord_params)
     @healthrecord.animal = @animal
+    @healthrecord.booking = @booking
     if @healthrecord.save
       redirect_to animal_health_records_path(@animal), notice: 'Record has been created.'
     else
@@ -27,14 +29,14 @@ class HealthRecordsController < ApplicationController
   end
 
   def update
-    if @healthrecord.update(healthrecord_params)
-      redirect_to @healthrecord, notice: 'Record has been updated'
-    else
-      render :edit
-    end
+    @booking = Booking.find(params[:booking_id])
+    @animal = Animal.find(params[:animal_id])
+    @healthrecord.update(healthrecord_params)
+    redirect_to @healthrecord
   end
 
   def destroy
+    @healthrecord = HealthRecord.find(params[:id])
     @healthrecord.destroy
     redirect_to health_record_path(@healthrecord.animal), status: :see_other
   end
