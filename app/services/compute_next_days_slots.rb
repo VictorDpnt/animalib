@@ -19,7 +19,7 @@ class ComputeNextDaysSlots
   private
 
   def bookings
-    @bookings ||= @user.bookings_as_professional
+    @bookings ||= @user.bookings
   end
 
   def day_bookings(day)

@@ -1,1 +1,19 @@
-<%= @slots %>
+<div class="d-flex">
+  <% @slots.each do |day_data| %>
+    <div class="mx-2">
+      <div><%= day_data[:date].strftime("%a %e %b") %></div>
+      <% day_data[:slots].each do |slot_data| %>
+        <% if slot_data[:available] %>
+          <div>
+            <% min = slot_data[:slot].start.to_s.match(/(\d{2})$/)&.captures&.first %>
+            <% hour = slot_data[:slot].start.to_s.gsub(/(\d{2})$/, "") %>
+            <% datetime = Time.parse("#{day_data[:date].to_s} #{hour}:#{min}") %>
+            <%= link_to "#{hour}h#{min}", new_user_booking_path(@professional, date: datetime), class: "btn btn-primary" %>
+          </div>
+        <% else %>
+          <div>-</div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

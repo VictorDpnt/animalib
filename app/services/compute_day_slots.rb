@@ -19,7 +19,7 @@ class ComputeDaySlots
     end
   end
 
-  private
+  # private
 
   def booking_slot(booking)
     return unless booking.is_a?(Booking)
