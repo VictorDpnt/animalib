@@ -30,7 +30,8 @@ class UsersController < ApplicationController
 
   def show
     @professional = User.find(params[:id])
-    @bookings = @professional.bookings
+    @slots = ComputeNextDaysSlots.new(user: @professional).call
+    # @bookings = @professional.bookings
     if @professional.present?
       @markers = [
         {

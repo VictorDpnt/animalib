@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   has_many :animals, dependent: :destroy
+  has_many :bookings_for_animal, through: :animals, source: :bookings
 
   has_many :bookings, dependent: :destroy
 
