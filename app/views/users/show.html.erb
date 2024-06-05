@@ -8,7 +8,7 @@
       <% if @professional.photo.attached? %>
         <%= cl_image_tag professional.photo.key %>
       <% else %>
-        <%= image_tag "veto.jpeg", class: "circular-image" %>
+        <%= image_tag "professional_avatar/#{@professional.profession.downcase}.png" %>
       <%end%>
     </div>
     <h5> <strong> <%= @professional.company_name.upcase %> </strong> </h5>
@@ -35,6 +35,7 @@
 
 <div>
 <h1> Calendrier </h1>
+  <%= render "users/calendar", slots: @slots %>
 </div>
 
 
@@ -45,7 +46,7 @@
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  </div>
 
 
 </div>

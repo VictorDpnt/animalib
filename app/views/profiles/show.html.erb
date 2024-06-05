@@ -39,7 +39,7 @@
               <%= f.input :birthdate, as: :string, input_html: { data: { controller: "datepicker" }, class: 'form-control' } %>
             </div>
             <div class="mb-3">
-              <%= f.input :specie, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
+              <%= f.input :specie, collection: Animal::SPECIES, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
             </div>
             <div class="mb-3">
               <%= f.input :breed, label_html: { class: 'form-label' }, input_html: { class: 'form-control' } %>
@@ -65,11 +65,7 @@
           <% if animal.photo.attached? %>
             <%= cl_image_tag animal.photo.key %>
           <% else %>
-            <% if animal.specie == "dog" %>
-               <%= image_tag "Avatar_animal" %>
-            <% elsif animal.specie == "Cat" %>
-              <%= image_tag "Avatar_cat" %>
-            <% end %>
+            <%= image_tag "avatar_animal/#{animal.specie.downcase}.png" %>
           <% end %>
         </div>
         <div class="pet-info text-dark">

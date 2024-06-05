@@ -16,10 +16,22 @@
   border-top-right-radius: 0 !important ;
   border-bottom-right-radius: 0 !important ;
   height: 52px;
+  
+  &::placeholder {
+    color: #969696 !important;
+  }
 }
 
-.nav::placeholder {
-  color: $light-grey;
+.nav-loc {
+  border-top-left-radius: 0 !important ;
+  border-bottom-left-radius: 0 !important ;
+  border-top-right-radius: 0 !important ;
+  border-bottom-right-radius: 0 !important ;
+  height: 52px;
+
+  &::placeholder {
+    color: #969696;
+  }
 }
 
 .nav-btn {
@@ -29,5 +41,18 @@
   // border-bottom-right-radius: 5px !important ;
   border-top-right-radius: 25px 50%;
   border-bottom-right-radius: 25px 50%;
+  height: 52px;
+  background-color: $dark-green;
+  font-family: $body-font;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: $medium-green;
+    color: $dark-green !important;
+  }
+}
+
+.profession {
+  color: #969696;
   height: 52px;
 }

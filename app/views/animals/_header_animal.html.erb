@@ -6,7 +6,11 @@
   <% end %>
 
     <div class="img-container">
-      <%= image_tag "Avatar_animal" %>
+      <% if @animal.photo.attached? %>
+        <%= cl_image_tag @animal.photo.key %>
+      <% else %>
+        <%= image_tag "avatar_animal/#{@animal.specie.downcase}.png" %>
+      <% end %>
     </div>
   <div class="infos-animal">
     <p class="name"><%= @animal.name.capitalize %></p>
