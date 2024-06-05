@@ -4,9 +4,6 @@
 
 <div class="big-container-records">
   <div class="records-container">
-    <% @healthrecords.each do |record| %>
-      <h1>Health Records for <%= @animal.name %></h1>
-      <li><%= record.history %></li>
-    <% end %>
+    <%= render 'health_records/my_healthrecord', animal: @healthrecords%>
   </div>
 </div>
