@@ -2,11 +2,9 @@
   background-size: cover;
   background-position: center;
   padding-bottom: 80px;
-  border-bottom-right-radius: 30px !important ;
-  border-bottom-left-radius: 30px !important ;
   width: 100 vw;
   height: 500px;
-  background-image: linear-gradient(rgba(0,0,0,0.9),rgba(243,251,249,0.1) 99%), url(banner_photo.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(243,251,249,0.1) 99%), url(banner_photo.jpg);
 }
 
 .banner h1 {
