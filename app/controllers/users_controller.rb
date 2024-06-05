@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         OR users.profession ILIKE :query
       SQL
       @professionals = @professionals.where(sql_subquery, query: "%#{params[:query]}%")
-    end
+      end
 
     @markers = @professionals.geocoded.map do |professional|
       {
@@ -25,5 +25,15 @@ class UsersController < ApplicationController
   def show
     @professional = User.find(params[:id])
     @bookings = @professional.bookings
+
+    if @professional.present?
+    @markers = [
+      {
+        lat: @professional.latitude,
+        lng: @professional.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { professional: @professional })
+      }
+    ]
+    end
   end
 end

@@ -7,10 +7,11 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
+    @animal.user = current_user
     if @animal.save
       redirect_to @animal, notice: 'Animal was successfully created.'
     else
-      render :new
+      render 'profiles/show'
     end
   end
 
@@ -38,7 +39,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :birthdate, :specie, :breed, :user_id)
+    params.require(:animal).permit(:name, :birthdate, :specie, :breed, :user_id, :photo)
   end
-
 end

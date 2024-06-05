@@ -1,7 +1,27 @@
-  <h4> <strong><%= professional.company_name.upcase %></strong></h4>
-  <div>
-    <h5><%= professional.first_name %></h5>
-    <h5><%= professional.last_name %></h5>
-  </div>
-  <p> <%=  professional.profession.capitalize %></p>
-  <p><%= professional.address %></p>
+<div class="card">
+    <div class="title">
+      <div class="img-pro">
+        <% if professional.photo.attached? %>
+          <%= cl_image_tag professional.photo.key %>
+        <% else %>
+          <%= image_tag "veto.jpeg", class: "img-pro" %>
+        <%end%>
+       </div>
+      <h6><strong><%= professional.company_name.upcase %></strong></h6>
+    </div>
+
+
+      <div class="name">
+        <p> Dr.  <%= professional.first_name %> </p>
+        <p><%= professional.last_name %></p>
+      </div>
+    <p> <%=  professional.profession.capitalize %></p>
+    <p class="leger"> <%= professional.address %></p>
+
+    <% if current_page?(users_path) %>
+      <div class="button-container">
+        <%= link_to "Check out", user_path(professional), class: "nav-link button" %>
+      </div>
+    <% end %>
+
+</div>
