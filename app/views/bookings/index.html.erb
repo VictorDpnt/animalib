@@ -1,9 +1,12 @@
-<% @bookings.each do |booking| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= booking.reason %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= booking.date %></h6>
-      <p>Taken care of by: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", user_path(booking.user) %></p>
+<div class="container mt-5">
+  <%= render 'animals/header_animal', bookings: @bookings%>
+  <% @bookings.each do |booking| %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= booking.reason %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= booking.date %></h6>
+        <p>Taken care of by: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}", user_path(booking.user) %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
