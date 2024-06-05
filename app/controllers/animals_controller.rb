@@ -7,10 +7,11 @@ class AnimalsController < ApplicationController
 
   def create
     @animal = Animal.new(animal_params)
+    @animal.user = current_user
     if @animal.save
-      redirect_to profile_path, notice: 'Animal was successfully created.'
+      redirect_to @animal, notice: 'Animal was successfully created.'
     else
-      render :new
+      render 'profiles/show'
     end
   end
 
