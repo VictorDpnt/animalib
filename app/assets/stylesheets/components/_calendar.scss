@@ -6,7 +6,7 @@
   padding-bottom: 100px;
 
   .souscontainer {
-    width: 1000px; 
+    width: 1000px;
     padding-top: 25px;
     display: flex;
     gap: 10px;
@@ -15,6 +15,7 @@
     font-family: $body-font;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-color: 1px solid $light-green;
+    margin: 0 auto;
   }
 
   .left-arrow,
