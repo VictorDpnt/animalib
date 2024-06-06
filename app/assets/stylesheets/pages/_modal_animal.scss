@@ -48,24 +48,27 @@
 
 .modal-footer {
   flex-direction: column;
+  color: $dark-green;
 }
 
-.btn-dark {
-  background-color: #000;
+.btn {
+  background-color: $dark-green;
   color: $white;
   padding: 10px 20px;
   border: none;
   border-radius: 50px;
-  cursor: pointer;
   font-size: 16px;
   text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 a {
-  color:$white ;
+  color: $dark-green;
   text-decoration: none;
 }
 
-.btn-primary:hover {
-  background-color: #333;
+.btn:hover {
+  background-color: $medium-green;
+
 }
