@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   PROFESSION = ["Veterinarian", "Pets-Sitter", "Groomer"]
   geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_address?#, unless: :coordinates_exists_on_create
 
   has_one_attached :photo
 
@@ -19,6 +19,4 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-
 end

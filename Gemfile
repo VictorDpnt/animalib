@@ -83,3 +83,7 @@ end
 
 # compute time slots
 gem "slot_machine"
+# http client
+gem 'faraday'
+
+gem 'faker'
