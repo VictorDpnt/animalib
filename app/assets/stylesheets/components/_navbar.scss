@@ -2,6 +2,10 @@
   justify-content: space-between;
 }
 
+.nav-other {
+  background: linear-gradient(rgba(0,0,0,0.9),rgba(243,251,249,0.05)) !important;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -16,7 +20,7 @@
   border-top-right-radius: 0 !important ;
   border-bottom-right-radius: 0 !important ;
   height: 52px;
-  
+
   &::placeholder {
     color: #969696 !important;
   }
