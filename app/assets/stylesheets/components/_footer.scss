@@ -1,11 +1,9 @@
 .big-contain {
-  margin-top: 100px;
   width: 100%;
   justify-content: center;
   background-color: $dark-green;
   padding: 20px;
-
-
+  position: sticky;
 
   .icon {
     display: inline-flex;
