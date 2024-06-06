@@ -35,7 +35,7 @@
 
 
         <div class="agenda">
-
+          <%= render "users/calendar", slots: ComputeNextDaysSlots.new(user: pro).call, professional: pro %>
         </div>
 
       </div>

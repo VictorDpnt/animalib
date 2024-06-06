@@ -1,7 +1,7 @@
 <div class="container-calendar">
   <div class="souscontainer">
      <i class="fa-solid fa-arrow-left left-arrow"></i>
-    <% @slots.each do |day_data| %>
+    <% slots.each do |day_data| %>
       <div class="slotcontainer">
         <div class="days"> <strong><%= day_data[:date].strftime("%a %e %b") %></strong></div>
         <% day_data[:slots].first(5).each do |slot_data| %>
@@ -10,7 +10,7 @@
               <% min = slot_data[:slot].start.to_s.match(/(\d{2})$/)&.captures&.first %>
               <% hour = slot_data[:slot].start.to_s.gsub(/(\d{2})$/, "") %>
               <% datetime = Time.parse("#{day_data[:date].to_s} #{hour}:#{min}") %>
-              <%= link_to "#{hour}:#{min}", new_user_booking_path(@professional, date: datetime), class: "availableslot" %>
+              <%= link_to "#{hour}:#{min}", new_user_booking_path(professional, date: datetime), class: "availableslot" %>
             </div>
           <% else %>
             <div class="unavailable-slot">
