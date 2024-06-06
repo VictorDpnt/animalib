@@ -3,13 +3,36 @@
   <div class="pro-cards-container">
     <% @professionals.each do |pro| %>
       <div class="card-pro">
-        <div class="infos">
-          <%= pro.company_name %>
-          <%= pro.first_name %>
-          <%= pro.profession.capitalize %>
-          <%= pro.address.capitalize %>
-          <%= pro.phone_number %>
+
+        <div class="container-infos">
+
+          <div class="infos-container">
+            <div class="img-container">
+                <% if pro.photo.attached? %>
+                  <%= cl_image_tag pro.photo.key %>
+                <% else %>
+                  <%= image_tag "professional_avatar/#{pro.profession.downcase}.png" %>
+                <% end %>
+            </div>
+            <div class="infos">
+              <p><%= pro.company_name.upcase %></p>
+              <% if pro.profession == "veterinarian" %>
+                <p><span>Dr. <%= pro.first_name.capitalize %></span> - <em><%= pro.profession.capitalize %></em></p>
+              <% else %>
+                <p><span><%= pro.first_name.capitalize %></span> - <em><%= pro.profession.capitalize %></em></p>
+              <% end %>
+            </div>
+          </div>
+
+          <div>
+            <p class="description text-card-pro"><strong><i class="fa-solid fa-location-dot"></i></strong> <%= pro.address %></p>
+            <p class="description text-card-pro"><strong><i class="fa-solid fa-phone"></i></strong> <%= pro.phone_number %></p>
+            <p class="description text-card-pro"> <%= pro.description %></p>
+          </div>
+
         </div>
+
+
 
         <div class="agenda">
 
