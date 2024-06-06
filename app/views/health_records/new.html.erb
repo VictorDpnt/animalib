@@ -5,7 +5,9 @@
     <div class="record-new">
     <%= simple_form_for [@animal, @healthrecord] do |f| %>
       <%= f.input :history, class: "input-record" %>
-      <%= f.submit "Create a record", class: "submit-record" %>
+      <div class="submit-container-record">
+        <%= f.submit "Create a record", class: "submit-record" %>
+      </div>
     <% end %>
     </div>
 </div>

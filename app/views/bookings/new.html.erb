@@ -7,7 +7,9 @@
       <%= f.association :animal, collection: current_user.animals, class: "input-booking" %>
       <%= f.input :date, wrapper_html: { class: "d-none" }, input_html: { value: @booking.date }, class: "input-booking" %>
       <%= f.input :reason, label: "Appointment reason", class: "input-booking" %>
-      <%= f.submit "Book an appointment", class: "submit-booking" %>
+      <div class="submit-container">
+        <%= f.submit "Book an appointment", class: "submit-booking" %>
+      </div>
       <% end %>
     </div>
 </div>
