@@ -1,32 +1,91 @@
-
-.souscontainer {
-  display: flex;
-  gap: 20px;
-  background-color: white;
+.container {
+  margin: 0 auto;
   justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .souscontainer {
+    width: 1000px; 
+    padding-top: 25px;
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    justify-content: center;
+    font-family: $body-font;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: 1px solid $light-green;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    color: black;
+    cursor: pointer;
+    padding: 0 12px;
+
+    &:hover {
+      color: $light-gray;
+      transition: background-color 0.2s ease, color 0.3s ease;
+    }
+  }
 
   .slotcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
     background-color: white;
     padding: 10px;
     border-radius: 5px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.3s ease;
+    transition: transform 0.3s ease;
+
+    .availableslots {
+      padding: 10px;
+      background-color: $light-grey;
+      margin-bottom: 25px;
+      border-radius: 4px;
+      width: 100px;
+      justify-content: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $medium-green;
+        color: white;
+        transition: background-color 0.2s ease, color 0.3s ease;
+        transform: scale(1.1);
+      }
+
+      a {
+        color: black;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
 
     .days {
       margin-bottom: 20px;
       text-align: center;
+    }
 
+    .unavailable-slot {
+      width: 100px;
+      height: 44px;
+      border-radius: 4px;
+      margin-bottom: 25px;
+      padding: 10px;
 
-
+      .rounded-bar {
+        width: 70px;
+        height: 5px;
+        background-color: #d3d3d3;
+        border-radius: 10px;
+        margin: 8px auto;
+      }
     }
   }
-}
-
-.availableslots {
-  padding: 10px;
-  color: black;
-  background-color: $light-grey;
-  margin-bottom: 25px;
-  border-radius: 4px;
-  width: 80px;
-  text-align: center;
-
 }
