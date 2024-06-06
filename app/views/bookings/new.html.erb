@@ -1,9 +1,13 @@
-<div class="container">
-  <h1>Bookings#new</h1>
-  <%= simple_form_for [@professional, @booking] do |f| %>
-    <%= f.association :animal, collection: current_user.animals %>
-    <%= f.input :date, wrapper_html: { class: "d-none" }, input_html: { value: @booking.date } %>
-    <%= f.input :reason, label: "Motif du rdv" %>
-    <%= f.submit "book" %>
-  <% end %>
+<div class="container-bookings">
+  <div class="flex-booking">
+    <h1><i class="fa-solid fa-calendar-check"></i> Bookings </h1>
+  </div>
+    <div class="booking-new">
+      <%= simple_form_for [@professional, @booking] do |f| %>
+      <%= f.association :animal, collection: current_user.animals, class: "input-booking" %>
+      <%= f.input :date, wrapper_html: { class: "d-none" }, input_html: { value: @booking.date }, class: "input-booking" %>
+      <%= f.input :reason, label: "Appointment reason", class: "input-booking" %>
+      <%= f.submit "Book an appointment", class: "submit-booking" %>
+      <% end %>
+    </div>
 </div>
