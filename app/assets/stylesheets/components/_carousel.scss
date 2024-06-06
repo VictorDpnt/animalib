@@ -1,0 +1,15 @@
+.carousel-item {
+  height: 60vh;
+  background-color: $dark-green;
+
+  & img {
+    object-fit: cover !important;
+    width: 280px !important;
+    height: 280px !important;
+    margin-left: 100px !important;
+  }
+}
+
+.carousel-caption {
+  margin-bottom: 100px !important;
+}

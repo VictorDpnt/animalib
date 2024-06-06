@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <div class="d-flex">
-        <h5 class="fw-bold mt-2 text-light">AnimaLib <i class="fa-solid fa-paw"></i></h5>
+        <h5 class="fw-bold mt-2 text-light mx-3">AnimaLib <i class="fa-solid fa-paw"></i></h5>
       </div>
     <% end %>
 
@@ -35,7 +35,7 @@
 
           </li>
         <% else %>
-            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline btn-ghost" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline btn-ghost text-light fw-bold mx-3" %>
         <% end %>
       </ul>
     </div>
