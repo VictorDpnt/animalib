@@ -13,9 +13,16 @@
     <h3> The easiest way to book professionals dedicated to your pets</h3>
   </div>
   <div class="icons d-flex justify-content-around py-4">
-    <i class="fa-solid fa-book-medical icon-size"></i>
-    <i class="fa-solid fa-calendar-check icon-size"></i>
-    <i class="fa-solid fa-dog icon-size"></i>
+
+    <%= link_to  animal_health_records_path(@animal) do %>
+      <i class="fa-solid fa-book-medical icon-size"></i>
+    <% end %>
+    <%= link_to profile_path do %>
+      <i class="fa-solid fa-calendar-check icon-size"></i>
+    <% end %>
+    <%= link_to profile_path do %>
+      <i class="fa-solid fa-dog icon-size"></i>
+    <% end %>
   </div>
 </div>
 
