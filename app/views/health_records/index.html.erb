@@ -1,9 +1,11 @@
 <div class="container mt-5">
-  <%= render 'animals/header_animal', animal: @healthrecords %>
+  <%= render 'animals/header_animal', animal: @animal %>
 </div>
 
 <div class="big-container-records">
   <div class="records-container">
-    <%= render 'health_records/my_healthrecord', animal: @healthrecords%>
+    <% @healthrecords.each do |record| %>
+      <%= render 'health_records/my_healthrecord', record: record, animal: @animal %>
+    <% end %>
   </div>
 </div>
