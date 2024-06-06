@@ -1,15 +1,17 @@
+
 <div class="my-record-container">
- <div class="flex-container">
-  <h1><i class="fa-solid fa-book-medical"></i> Healthrecord of <%= @animal.name %></h1>
-  <a href="<%= new_animal_health_record_path(@animal) %>" class="add-record-button">
-    <i class="fa-solid fa-folder-plus"></i></a>
- </div>
-    <div class="info-record">
-     <h4>Description</h4>
-      <% @healthrecords.each do |record| %>
-        <div class="record-description">
-          <%= record.history %>
-        </div>
+  <div class="flex-container">
+    <h1><i class="fa-solid fa-book-medical"></i> Healthrecord of <%= animal.name %></h1>
+    <div>
+      <%= link_to health_record_path(record), class: 'delete-record-button', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-trash-can trash"></i>
       <% end %>
     </div>
+  </div>
+  <div class="info-record">
+    <h4>Description</h4>
+  </div>
+  <div>
+    <%= record.history %>
+  </div>
 </div>
