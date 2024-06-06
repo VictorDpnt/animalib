@@ -1,4 +1,4 @@
-.container-records {
+.container-bookings {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
@@ -11,32 +11,29 @@ h1 {
   font-family: $headers-font ;
 }
 
-.record-new {
+.booking-new {
   display: flex;
   flex-direction: column;
 }
 
-.flex-record {
+.flex-booking {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.flex-record h1 {
+.flex-booking h1 {
   font-size: 24px;
   color: $black ;
   display: flex;
   align-items: center;
-}
-
-.flex-record h1 i {
   margin-right: 10px;
   color:$black ;
 }
 
 
-.input-record {
+.input-booking {
   width: 100%;
   padding: 10px;
   border: 1px solid $white;
@@ -45,15 +42,15 @@ h1 {
   color: $light-grey;
 }
 
-.submit-container-record {
+.submit-container {
   display: flex;
   justify-content: center;
   padding: 10px;
 }
 
-.submit-record {
+.submit-booking {
   padding: 10px 20px;
-  background-color: $dark-green;
+  background-color:$dark-green;
   border: none;
   border-radius: 4px;
   color: $white;
@@ -62,7 +59,7 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.submit-record:hover {
+.submit-booking:hover {
   background-color: $medium-green;
   color: $dark-green;
 }

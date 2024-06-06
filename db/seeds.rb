@@ -33,6 +33,7 @@ pro2 = User.create!(
 
 
 animal1 = Animal.create!(name: "Happy", birthdate: "2024-03-01", specie: "Dog", breed: "golden", user: user1)
+animal2 = Animal.create!(name: "Kurama", birthdate: "2024-03-01", specie: "Cat", breed: "bengal", user: pro2)
 
 Booking.create!(date: Time.parse("#{Date.tomorrow.to_s} 16:00"), user: pro1, animal: animal1, reason: "Castration des coucouilles")
 Booking.create!(date: Time.parse("#{Date.tomorrow.to_s} 18:00"), user: pro2, animal: animal1, reason: "Problème gastrique")
@@ -133,3 +134,4 @@ end
 #   user.save!
 #   puts "User veterinarian n°#{index} created!!"
 # end
+

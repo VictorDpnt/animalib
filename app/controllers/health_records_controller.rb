@@ -34,9 +34,9 @@ class HealthRecordsController < ApplicationController
   end
 
   def destroy
-    @healthrecord = HealthRecord.find(params[:id])
+    @animal = @healthrecord.animal
     @healthrecord.destroy
-    redirect_to health_record_path(@healthrecord.animal), status: :see_other
+    redirect_to animal_health_records_path(@animal), status: :see_other, notice: 'Record has been deleted.'
   end
 
   private
