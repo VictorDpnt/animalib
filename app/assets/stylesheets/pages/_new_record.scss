@@ -45,6 +45,12 @@ h1 {
   color: $light-grey;
 }
 
+.submit-container-record {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
 .submit-record {
   padding: 10px 20px;
   background-color: $dark-green;
@@ -54,6 +60,9 @@ h1 {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
 }
 
+.submit-record:hover {
+  background-color: $medium-green;
+  color: $dark-green;
+}
