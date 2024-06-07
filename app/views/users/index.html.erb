@@ -25,17 +25,18 @@
           </div>
 
           <div>
-            <p class="description text-card-pro"><strong><i class="fa-solid fa-location-dot"></i></strong> <%= pro.address %></p>
-            <p class="description text-card-pro"><strong><i class="fa-solid fa-phone"></i></strong> <%= pro.phone_number %></p>
-            <p class="description text-card-pro"> <%= pro.description %></p>
+            <p class=" text-card-pro"><strong><i class="fa-solid fa-location-dot"></i></strong> <%= pro.address %></p>
+            <p class=" text-card-pro"><strong><i class="fa-solid fa-phone"></i></strong> <%= pro.phone_number %></p>
           </div>
-
+          <div class="button-container">
+            <%= link_to "Check out", user_path(pro), class: "nav-link button" %>
+          </div>
         </div>
 
 
 
         <div class="agenda">
-          <%= render "users/calendar", slots: ComputeNextDaysSlots.new(user: pro).call, professional: pro %>
+          <%= render "users/calendar_card", slots: ComputeNextDaysSlots.new(user: pro).call, professional: pro %>
         </div>
 
       </div>
@@ -43,7 +44,9 @@
   </div>
 
 
-  <div style="width: 100%; height: 100vh;"
+
+  <div style="width: 100%; height: 80vh; sticky-bar;"
+
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

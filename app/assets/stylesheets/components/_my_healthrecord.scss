@@ -26,25 +26,33 @@
   align-items: center;
 }
 
-.my-record-container h4 {
-  font-family: $body-font ;
-  color: $black;
-  font-size:large;
-  font-weight: bold;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  width: 100%;
-}
 
 .my-record-container h1 i {
   margin-right: 10px;
 }
 
 .info-record {
-  margin-top: 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: flex-start;
+  p {
+    font-size: 10px;
+    font-style: italic;
+  }
+  h4 {
+    font-family: $body-font ;
+    color: $black;
+    font-size:15px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+.p-content {
+  font-size: 15px;
+
 }
 
 .flex-container {
