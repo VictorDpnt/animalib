@@ -3,7 +3,7 @@
   <div class="infos">
     <div class="img-container">
       <% if @professional.photo.attached? %>
-        <%= cl_image_tag professional.photo.key %>
+        <%= cl_image_tag @professional.photo.key %>
       <% else %>
         <%= image_tag "professional_avatar/#{@professional.profession.downcase}.png" %>
       <%end%>
@@ -42,5 +42,3 @@
 
 
 </div>
-
-
