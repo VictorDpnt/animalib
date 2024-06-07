@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
   def new
     set_professional
     @booking = Booking.new(date: params[:date])
+    @reasons = ["follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
   end
 
   def create
