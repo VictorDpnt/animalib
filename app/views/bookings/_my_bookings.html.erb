@@ -22,7 +22,7 @@
       <p><strong>Date:</strong> <%= booking.date.strftime("%d/%m/%Y") %></p>
       <p><strong>Address:</strong> <%= booking.user.address %></p>
       <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
-      <p><strong>Email:</strong> <%= booking.user.email %></p>
+      <p><strong>Reason:</strong> <%= booking.reason %></p>
     </div>
     <div class="cancel-container">
       <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "cancel text-center" %>
