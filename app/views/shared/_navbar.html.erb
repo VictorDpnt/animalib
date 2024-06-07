@@ -1,10 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-lewagon sticky-top nav-other">
+<div class="navbar navbar-expand-sm navbar-lewagon sticky-top nav-other shadow">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <div class="d-flex">
         <h5 class="fw-bold mt-2 text-light mx-3">AnimaLib <i class="fa-solid fa-paw"></i></h5>
       </div>
     <% end %>
+
+    <%= render partial: "shared/navbar_searchbar" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
