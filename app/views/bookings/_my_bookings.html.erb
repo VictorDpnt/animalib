@@ -11,7 +11,9 @@
           <% end %>
         </div>
         <div class="profession">
-          <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+        <%= link_to user_path(booking.user) do %>
+        <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+        <% end %>
           <em><%= booking.user.profession.capitalize %></em>
         </div>
       </div>
