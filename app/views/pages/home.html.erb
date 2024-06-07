@@ -7,22 +7,31 @@
   </div>
 </div>
 
-<div class="container text-center mt-4">
+<div class="container text-center mt-5">
   <div class="text">
     <h1> <strong>Animalib, </strong></h1>
     <h3> The easiest way to book professionals dedicated to your pets</h3>
   </div>
   <div class="icons d-flex justify-content-around py-4">
+    <div>
+      <%= link_to users_path(profession: "veterinarian") do %>
 
-    <%= link_to profile_path do %>
-      <i class="fa-solid fa-book-medical icon-size"></i>
-    <% end %>
-    <%= link_to profile_path do %>
-      <i class="fa-solid fa-calendar-check icon-size"></i>
-    <% end %>
-    <%= link_to profile_path do %>
-      <i class="fa-solid fa-dog icon-size"></i>
-    <% end %>
+        <%= image_tag "professional_avatar/veterinarian.png", class: "pro-logo rounded-circle", alt: "veterinarian" %>
+      <% end %>
+      <h4 class="mt-3">Veterinarians</h4>
+    </div>
+    <div>
+      <%= link_to users_path(profession: "pet-sitter") do %>
+        <%= image_tag "professional_avatar/pet-sitter.png", class: "pro-logo rounded-circle", alt: "pet-sitter" %>
+      <% end %>
+      <h4 class="mt-3">Pet-sitters</h4>
+    </div>
+    <div>
+      <%= link_to users_path(profession: "groomer") do %>
+        <%= image_tag "professional_avatar/groomer.png", class: "pro-logo rounded-circle", alt: "groomer" %>
+      <% end %>
+      <h4 class="mt-3">Groomers</h4>
+    </div>
   </div>
 </div>
 
