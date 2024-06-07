@@ -1,0 +1,25 @@
+
+<div class="animal-container">
+  <div class="header-animal-container">
+  <%= link_to animal_path(@animal), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+    <i class='fa-solid fa-trash-can trash'></i>
+  <% end %>
+
+    <div class="img-container">
+      <% if @professional.photo.attached? %>
+        <%= cl_image_tag @animal.photo.key %>
+      <% else %>
+        <%= image_tag "avatar_animal/#{@animal.specie.downcase}.png" %>
+      <% end %>
+    </div>
+  <div class="infos-animal">
+    <p class="name"><%= @animal.name.capitalize %></p>
+    <div class="desc-animal">
+      <p><%= @animal.specie.capitalize %> </p>
+      <p> <%= @animal.breed.capitalize %> </p>
+      <p> <%= @animal.age %> Years Old</p>
+    </div>
+  </div>
+</div>
+
+</div>

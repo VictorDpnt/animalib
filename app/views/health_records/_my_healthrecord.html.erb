@@ -10,10 +10,9 @@
   </div>
   <div class="info-record">
     <h4>Description</h4>
+    <p><strong>Created at </strong> <%= record.created_at.strftime("%d/%m/%Y") %></p>
   </div>
-  <div>
-    <%= record.history %>
-  </div>
+    <div class="p-content"><%= record.history %></div>
 </div>
 
 <%= render "shared/footer" %>
