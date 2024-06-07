@@ -1,15 +1,36 @@
 .carousel-item {
-  height: 60vh;
-  background-color: $dark-green;
+  height: 50vh;
+  background-color: $medium-green;
 
   & img {
     object-fit: cover !important;
     width: 280px !important;
     height: 280px !important;
     margin-left: 100px !important;
+    border: 2px solid $dark-green;
   }
 }
 
 .carousel-caption {
-  margin-bottom: 100px !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-25%);
+
+  .text-carousel {
+    color: rgba(0, 0, 0, 0.631);
+  }
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+
+  .carousel-item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+#carouselExampleCaptions {
+  position: relative;
 }
