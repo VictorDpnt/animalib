@@ -34,7 +34,7 @@
   <%= render "users/calendar", slots: @slots, professional: @professional %>
 </div>
 
-  <div style="width: 100%; height: 500px; margin: 0 auto; margin-bottom: 100px; position: sticky; top: 0;"
+  <div style="width: 100%; height: 500px; margin-top: 220px; margin-bottom: 100px; position: sticky; top: 0;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
