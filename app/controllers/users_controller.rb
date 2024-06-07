@@ -9,7 +9,6 @@ class UsersController < ApplicationController
         OR users.last_name ILIKE :query
       SQL
       @professionals = @professionals.where(sql_subquery, query: "%#{params[:query]}%")
-      # @professionals_name = @professionals
     end
 
     if params[:address].present?
