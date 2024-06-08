@@ -9,7 +9,11 @@
       <%end%>
     </div>
     <h5> <strong> <%= @professional.company_name.upcase %> </strong> </h5>
-    <h6> Dr. <%= @professional.first_name.capitalize %> <%= @professional.last_name.capitalize %> </h6>
+    <% if @professional[:profession] == "veterinarian" %>
+      <h6> Dr. <%= @professional.first_name.capitalize %> <%= @professional.last_name.capitalize %> </h6>
+    <% else %>
+      <h6><%= @professional.first_name.capitalize %> <%= @professional.last_name.capitalize %> </h6>
+    <% end %>
     <h6> <%= @professional.profession.capitalize %> </h6>
     <h6> <%= @professional.description %> </h6>
   </div>
