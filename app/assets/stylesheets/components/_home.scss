@@ -4,6 +4,18 @@
 }
 
 .pro-logo {
+
+  & img {
   width: 150px;
   height: 150px;
+  }
+
+  &:hover {
+    scale: 0.95;
+    transition: 0.3s;
+  }
+
+  &:hover h4 {
+    font-weight: bold;
+  }
 }
