@@ -15,12 +15,23 @@
     align-items: center;
 
     .infos {
+      position: relative;
       background: white;
       padding: 20px;
       padding-left: 140px;
       position: relative;
       width: 80%;
       border: 1px solid $medium-green;
+
+      .hearts {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        .fa-heart{
+          font-size: 1.7rem;
+        }
+      }
 
       .img-container {
         position: absolute;

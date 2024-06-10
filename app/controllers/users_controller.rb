@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
   def index
+
     # @professionals = User.where.not(profession: nil)
     @professionals = User.includes(:bookings, photo_attachment: :blob).where.not(profession: nil)
+
+    set_booking
+
+    @professional = User.find_by(profession: params[:profession])
+    #.order(:profession)
+
 
     if params[:query].present?
       sql_subquery = <<~SQL
@@ -20,16 +27,19 @@ class UsersController < ApplicationController
       @professionals = @professionals.where("users.profession ILIKE ?", "%#{params[:profession]}%")
     end
 
+
     @markers = @professionals.geocoded.map do |professional|
       {
         lat: professional.latitude,
         lng: professional.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { professional: professional })
+        info_window_html: render_to_string(partial: "info_window", locals: { professional: professional }),
+        marker_html: render_to_string(partial: "marker", locals: { professional: professional })
       }
     end
   end
 
   def show
+    set_booking
     @professional = User.find(params[:id])
     @slots = ComputeNextDaysSlots.new(user: @professional).call
     # @bookings = @professional.bookings
@@ -38,9 +48,17 @@ class UsersController < ApplicationController
         {
           lat: @professional.latitude,
           lng: @professional.longitude,
-          info_window_html: render_to_string(partial: "info_window", locals: { professional: @professional })
+          info_window_html: render_to_string(partial: "info_window", locals: { professional: @professional }),
+          marker_html: render_to_string(partial: "marker", locals: { professional: @professional })
         }
       ]
     end
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.new(date: params[:date])
+    @reasons = ["Follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
   end
 end

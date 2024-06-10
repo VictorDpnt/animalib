@@ -4,20 +4,21 @@ class BookingsController < ApplicationController
     @bookings = @animal.bookings
   end
 
-  def new
-    set_professional
-    @booking = Booking.new(date: params[:date])
-    @reasons = ["follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
-  end
+  # def new
+  #   set_professional
+  #   @booking = Booking.new(date: params[:date])
+  #   @reasons = ["Follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
+  # end
 
   def create
     set_professional
     @booking = Booking.new(booking_params)
     @booking.user = @professional
+
     if @booking.save
-      redirect_to animal_health_records_path(@booking.animal)
+      redirect_to animal_health_records_path(@booking.animal.id)
     else
-      render :new, status: :unprocessable_entity
+      render "users/show", status: :unprocessable_entity
     end
   end
 

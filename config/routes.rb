@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show] do
     resources :bookings, only: [:new, :create]
+    resources :favorites, only: [:create]
   end
+
+  resources :favorites, only: [:index, :destroy]
 
   resources :bookings, only: [:edit, :update, :destroy]
 

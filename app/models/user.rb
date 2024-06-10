@@ -7,8 +7,11 @@ class User < ApplicationRecord
 
   has_many :animals, dependent: :destroy
   has_many :bookings_for_animal, through: :animals, source: :bookings
-
   has_many :bookings, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :professionals, through: :favorites, source: :professional
+
+
 
   validates :first_name, :last_name, :email, :address, presence: true
 

@@ -1,14 +1,17 @@
 <div class="calendar-container">
 
-    <% slots.each do |day_data| %>
+    <% slots.each_with_index do |day_data, d_idx| %>
       <div class="columns-container">
         <div class="days"><%= day_data[:date].strftime("%a %e %b") %></div>
-        <% day_data[:slots].first(5).each do |slot_data| %>
+        <% day_data[:slots].first(5).each_with_index do |slot_data, s_idx| %>
           <% if slot_data[:available] %>
               <% min = slot_data[:slot].start.to_s.match(/(\d{2})$/)&.captures&.first %>
               <% hour = slot_data[:slot].start.to_s.gsub(/(\d{2})$/, "") %>
               <% datetime = Time.parse("#{day_data[:date].to_s} #{hour}:#{min}") %>
-              <%= link_to "#{hour}:#{min}", new_user_booking_path(professional, date: datetime), class: "availableslot" %>
+              <button type="button" data-bs-toggle="modal" class="availableslot border border-0" data-bs-target="#<%= d_idx %>-<%= s_idx %>">
+                <%= "#{hour}:#{min}" %>
+              </button>
+              <%= render "bookings/booking_form", reasons: @reasons, min: min, hour: hour, s_idx: s_idx, d_idx: d_idx, day_data: day_data, professional: professional, booking: @booking %>
           <% else %>
             <div class="unavailable-slot">
               <div class="rounded-bar"></div>
