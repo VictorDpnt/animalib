@@ -22,11 +22,13 @@ class UsersController < ApplicationController
       @professionals = @professionals.where("users.profession ILIKE ?", "%#{params[:profession]}%")
     end
 
+
     @markers = @professionals.geocoded.map do |professional|
       {
         lat: professional.latitude,
         lng: professional.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { professional: professional })
+        info_window_html: render_to_string(partial: "info_window", locals: { professional: professional }),
+        marker_html: render_to_string(partial: "marker", locals: { professional: professional })
       }
     end
   end
@@ -41,7 +43,8 @@ class UsersController < ApplicationController
         {
           lat: @professional.latitude,
           lng: @professional.longitude,
-          info_window_html: render_to_string(partial: "info_window", locals: { professional: @professional })
+          info_window_html: render_to_string(partial: "info_window", locals: { professional: @professional }),
+          marker_html: render_to_string(partial: "marker", locals: { professional: @professional })
         }
       ]
     end
