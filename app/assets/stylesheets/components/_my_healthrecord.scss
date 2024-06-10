@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  // margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -26,7 +26,6 @@
   align-items: center;
 }
 
-
 .my-record-container h1 i {
   margin-right: 10px;
 }
@@ -40,9 +39,9 @@
     font-style: italic;
   }
   h4 {
-    font-family: $body-font ;
+    font-family: $body-font;
     color: $black;
-    font-size:15px;
+    font-size: 15px;
     font-weight: bold;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -52,7 +51,6 @@
 
 .p-content {
   font-size: 15px;
-
 }
 
 .flex-container {
