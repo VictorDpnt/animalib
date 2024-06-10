@@ -30,8 +30,8 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end rounded" aria-labelledby="navbarDropdown">
               <p class="text-center text-black border-bottom pb-1 fw-bold fs-6"><%= current_user.first_name%> <%= current_user.last_name%></p>
-              <%= link_to "My account", profile_path, class: "dropdown-item" %>
-              <%# <%= link_to "My products", myProducts_products_path, class: "dropdown-item" %>
+              <%= link_to "My profile", profile_path, class: "dropdown-item" %>
+              <%= link_to "My favorites", favorites_path, class: "dropdown-item" %> <%# <%= link_to "My products", myProducts_products_path, class: "dropdown-item" %>
               <%= link_to "<i class='fa-solid fa-right-to-bracket'></i>".html_safe + "  Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger " %>
             </div>
 

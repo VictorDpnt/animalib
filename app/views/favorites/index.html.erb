@@ -1,0 +1,33 @@
+<h1> Favorite index</h1>
+
+ <div class="container-infos">
+  <% @favorites.each do |favorite|%>
+    <%= favorite.professional.first_name %>
+  <div class="infos-container">
+    <div class="img-container">
+        <% if favorite.professional.photo.attached? %>
+          <%= cl_image_tag pro.photo.key %>
+        <% else %>
+          <%= image_tag "professional_avatar/#{favorite.professional.profession.downcase}.png" %>
+        <% end %>
+    </div>
+    
+    <div class="infos">
+      <p><%= favorite.professional.company_name.upcase %></p>
+      <% if favorite.professional.profession == "veterinarian" %>
+        <p><span>Dr. <%= favorite.professional.first_name.capitalize %></span> - <em><%= favorite.professional.profession.capitalize %></em></p>
+      <% else %>
+        <p><span><%= favorite.professional.first_name.capitalize %></span> - <em><%= favorite.professional.profession.capitalize %></em></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <p class=" text-card-pro"><strong><i class="fa-solid fa-location-dot"></i></strong> <%= favorite.professional.address %></p>
+    <p class=" text-card-pro"><strong><i class="fa-solid fa-phone"></i></strong> <%= favorite.professional.phone_number %></p>
+  </div>
+  <div class="button-container">
+    <%# <%= link_to "View details", class: "nav-link button" %>
+  </div>
+   <% end %>
+</div>

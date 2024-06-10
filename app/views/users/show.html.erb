@@ -16,6 +16,16 @@
     <% end %>
     <h6> <%= @professional.profession.capitalize %> </h6>
     <h6> <%= @professional.description %> </h6>
+      <% if current_user.professionals.include?(@professional) %>
+        <%= link_to favorite_path(current_user.professionals.find_by(id: @professional.id)), data: { turbo_method: :delete } do %>
+          <i class="fa-solid fa-heart"></i>
+
+        <% end %>
+      <% else %>
+        <%= link_to user_favorites_path(@professional), data: { turbo_method: :post } do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
+      <% end %>
   </div>
 </div>
 
