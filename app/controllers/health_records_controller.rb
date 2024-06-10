@@ -4,6 +4,7 @@ class HealthRecordsController < ApplicationController
   def index
     @animal = Animal.find(params[:animal_id])
     @healthrecords = @animal.health_records
+    @healthrecord = HealthRecord.new
   end
 
   def new
