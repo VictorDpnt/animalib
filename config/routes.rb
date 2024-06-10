@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   resource :profile, only: :show
 
-  resources :animals, except: [:index, :show] do
-    resources :health_records, only: [:new, :create, :index]
+  resources :animals, except: [:show] do
+    resources :health_records, only: [:create, :index]
     resources :documents, only: :index
     resources :bookings, only: :index
   end

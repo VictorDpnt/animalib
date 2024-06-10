@@ -1,0 +1,120 @@
+.header-profile {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+
+  .card-profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px $dark-green;
+    border-radius: 5px;
+    padding: 20px 20px 10px 140px;
+    // padding-left: 160px;
+    width: 80%;
+
+    .img-profile {
+      position: absolute;
+      bottom: 0;
+      left: -105px;
+      width: 210px;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .infos-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .top-infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+
+        .name {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          font-size: 2rem;
+
+          p {
+            margin: 0 !important;
+          }
+
+          p:first-child {
+            margin-right: 10px;
+          }
+        }
+
+        .coordonnates-profile {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          font-style: italic;
+          margin-top: -5px;
+          opacity: 0.8;
+
+          li {
+            margin-right: 35px;
+
+            .fa-solid {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .nav-profile {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      width: 30%;
+      text-transform: capitalize;
+
+      p,
+      a {
+        color: black;
+        margin: 0;
+        margin-top: 15px;
+      }
+
+      .under-line {
+        text-decoration: underline;
+      }
+
+      .fa-solid {
+        text-decoration: none;
+        margin-right: 3px;
+      }
+    }
+  }
+}
+
+.first-pet {
+  margin-top: 30px;
+  margin-bottom: -20px;
+}
+
+.btn-add-pets-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  .add-pets {
+    color: $dark-green;
+    margin: 0 auto;
+    font-size: 3rem;
+  }
+}
