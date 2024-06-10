@@ -1,6 +1,7 @@
 .carousel-item {
   height: 50vh;
   background-color: $medium-green;
+  position: relative;
 
   & img {
     object-fit: cover !important;
@@ -8,6 +9,9 @@
     height: 280px !important;
     margin-left: 100px !important;
     border: 2px solid $dark-green;
+    position: absolute;
+    top: 40px;
+
   }
 }
 
@@ -21,17 +25,6 @@
   }
 }
 
-.carousel-inner {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-
-  .carousel-item {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-}
 
 #carouselExampleCaptions {
   position: relative;
