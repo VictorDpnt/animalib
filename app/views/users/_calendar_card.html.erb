@@ -11,32 +11,7 @@
               <button type="button" data-bs-toggle="modal" class="availableslot border border-0" data-bs-target="#<%= d_idx %>-<%= s_idx %>">
                 <%= "#{hour}:#{min}" %>
               </button>
-              <div class="modal fade" id="<%= d_idx %>-<%= s_idx %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header d-flex">
-                      <h1><i class="fa-solid fa-calendar-check"></i><span>   </span>Booking</h1>
-                      <p><%= "#{day_data[:date].to_s} #{hour}:#{min}" %></p>
-                    </div>
-                    <div class="modal-body">
-                      <div class="booking-new">
-                        <%= simple_form_for [@professional, @booking] do |f| %>
-                          <%= f.association :animal, collection: current_user.animals, class: "input-booking" %>
-                          <%= f.input :date, wrapper_html: { class: "d-none" }, input_html: { value: @booking.date }, class: "input-booking" %>
-                          <% if @professional[:profession] == "veterinarian" %>
-                            <%= f.input :reason, collection: @reasons, class: "input-booking" %>
-                          <% end %>
-                      </div>
-                          <div class="footer-modal border-top pt-4 mt-3 text-end">
-                            <button type="button" class="close-booking mx-3" data-bs-dismiss="modal">Close</button>
-                            <%= f.submit "Book an appointment", class: "submit-booking" %>
-                          </div>
-                        <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+              <%= render "bookings/booking_form", reasons: @reasons, min: min, hour: hour, s_idx: s_idx, d_idx: d_idx, day_data: day_data, professional: professional, booking: @booking %>
           <% else %>
             <div class="unavailable-slot">
               <div class="rounded-bar"></div>
