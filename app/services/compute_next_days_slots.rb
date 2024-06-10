@@ -23,6 +23,10 @@ class ComputeNextDaysSlots
   end
 
   def day_bookings(day)
-    bookings.where(date: day.beginning_of_day..day.end_of_day)
+    if bookings.loaded?
+      bookings.filter { |booking| (day.beginning_of_day..day.end_of_day).cover?(booking.date) }
+    else
+      bookings.where(date: day.beginning_of_day..day.end_of_day)
+    end
   end
 end

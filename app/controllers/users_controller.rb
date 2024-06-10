@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
   def index
+
+    # @professionals = User.where.not(profession: nil)
+    @professionals = User.includes(:bookings, photo_attachment: :blob).where.not(profession: nil)
+
     set_booking
-    @professionals = User.where.not(profession: nil)
+
     @professional = User.find_by(profession: params[:profession])
     #.order(:profession)
+
 
     if params[:query].present?
       sql_subquery = <<~SQL

@@ -2,11 +2,17 @@
   <%= render 'animals/header_animal', animal: @animal %>
 </div>
 
+<div class="btn-add-pets-containerr">
+    <button type="button" class="add-recordd" data-toggle="modal" data-target="#exampleModalCenter">
+       <p type="button" class="fa-solid fa-circle-plus add-record" data-bs-toggle="modal" data-bs-target="#exampleModal"></p>
+    </button>
+</div>
+
 <div class="big-container-records">
   <div class="records-container">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
       <i class="fa-solid fa-notes-medical add-record"></i>
-    </button>
+    </button> %>
     <% @healthrecords.each do |record| %>
       <%= render 'health_records/my_healthrecord', record: record, animal: @animal %>
     <% end %>
