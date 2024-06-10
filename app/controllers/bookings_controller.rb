@@ -14,10 +14,11 @@ class BookingsController < ApplicationController
     set_professional
     @booking = Booking.new(booking_params)
     @booking.user = @professional
+
     if @booking.save
-      redirect_to animal_health_records_path(@booking.animal)
+      redirect_to animal_health_records_path(@booking.animal.id)
     else
-      render :new, status: :unprocessable_entity
+      render "users/show", status: :unprocessable_entity
     end
   end
 
