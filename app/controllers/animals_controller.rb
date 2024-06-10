@@ -1,6 +1,11 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:update, :destroy]
 
+  def index
+    @animals = current_user.animals
+    @animal = Animal.new
+  end
+
   def new
     @animal = Animal.new
   end
