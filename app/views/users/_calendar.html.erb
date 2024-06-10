@@ -1,16 +1,47 @@
 <div class="container-calendar">
   <div class="souscontainer">
      <i class="fa-solid fa-arrow-left left-arrow"></i>
-    <% slots.each do |day_data| %>
+    <% slots.each_with_index do |day_data, d_idx| %>
       <div class="slotcontainer">
         <div class="days"> <strong><%= day_data[:date].strftime("%a %e %b") %></strong></div>
-        <% day_data[:slots].first(5).each do |slot_data| %>
+        <% day_data[:slots].first(5).each_with_index do |slot_data, s_idx| %>
           <% if slot_data[:available] %>
-            <div class="availableslots">
+            <div >
               <% min = slot_data[:slot].start.to_s.match(/(\d{2})$/)&.captures&.first %>
               <% hour = slot_data[:slot].start.to_s.gsub(/(\d{2})$/, "") %>
               <% datetime = ActiveSupport::TimeZone["Europe/Paris"].parse("#{day_data[:date].to_s} #{hour}:#{min}") %>
-              <%= link_to "#{hour}:#{min}", new_user_booking_path(professional, date: datetime), class: "availableslot" %>
+              <%# <%= link_to "#{hour}:#{min}", new_user_booking_path(professional, date: datetime), class: "availableslot"%>
+              <!-- Button trigger modal -->
+              <button type="button" data-bs-toggle="modal" class="availableslots border border-0" data-bs-target="#<%= d_idx %>-<%= s_idx %>">
+                <%= "#{hour}:#{min}" %>
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="<%= d_idx %>-<%= s_idx %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header d-flex">
+                      <h1><i class="fa-solid fa-calendar-check"></i><span>   </span>Booking</h1>
+                      <p><%= "#{day_data[:date].to_s} #{hour}:#{min}" %></p>
+                    </div>
+                    <div class="modal-body">
+                      <div class="booking-new">
+                        <%= simple_form_for [@professional, @booking] do |f| %>
+                          <%= f.association :animal, collection: current_user.animals, class: "input-booking" %>
+                          <%= f.input :date, wrapper_html: { class: "d-none" }, input_html: { value: @booking.date }, class: "input-booking" %>
+                          <% if @professional[:profession] == "veterinarian" %>
+                            <%= f.input :reason, collection: @reasons, class: "input-booking" %>
+                          <% end %>
+                      </div>
+                          <div class="footer-modal border-top pt-4 mt-3 text-end">
+                            <button type="button" class="close-booking mx-3" data-bs-dismiss="modal">Close</button>
+                            <%= f.submit "Book an appointment", class: "submit-booking" %>
+                          </div>
+                        <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           <% else %>
             <div class="unavailable-slot">
@@ -23,3 +54,8 @@
       <i class="fa-solid fa-arrow-right right-arrow"></i>
   </div>
 </div>
+
+
+
+
+

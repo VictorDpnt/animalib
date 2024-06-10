@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
+    set_booking
     @professionals = User.where.not(profession: nil)
+    @professional = User.find_by(profession: params[:profession])
     #.order(:profession)
 
     if params[:query].present?
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    set_booking
     @professional = User.find(params[:id])
     @slots = ComputeNextDaysSlots.new(user: @professional).call
     # @bookings = @professional.bookings
@@ -42,5 +45,12 @@ class UsersController < ApplicationController
         }
       ]
     end
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.new(date: params[:date])
+    @reasons = ["Follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
   end
 end

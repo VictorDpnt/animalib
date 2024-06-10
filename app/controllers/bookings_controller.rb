@@ -4,11 +4,11 @@ class BookingsController < ApplicationController
     @bookings = @animal.bookings
   end
 
-  def new
-    set_professional
-    @booking = Booking.new(date: params[:date])
-    @reasons = ["follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
-  end
+  # def new
+  #   set_professional
+  #   @booking = Booking.new(date: params[:date])
+  #   @reasons = ["Follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
+  # end
 
   def create
     set_professional
