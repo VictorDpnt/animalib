@@ -1,5 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
+  .container-fluid {
+    display: flex;
+    justify-content: end;
+  }
 }
 
 .nav-other {
@@ -9,6 +13,7 @@
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
+
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
@@ -63,4 +68,9 @@
   height: 52px;
   box-shadow: none !important;
   outline: none !important;
+}
+
+.flex-loupe {
+  display: flex;
+
 }
