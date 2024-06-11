@@ -1,4 +1,6 @@
-.container {
+.show-container {
+  display: grid;
+  grid-template-columns: 65% 45%;
   .circular-image {
     width: 250px;
     height: 250px;
@@ -28,7 +30,7 @@
         top: 20px;
         right: 20px;
 
-        .fa-heart{
+        .fa-heart {
           font-size: 1.7rem;
         }
       }
@@ -47,6 +49,19 @@
           object-fit: contain;
         }
       }
+    }
+  }
+  .agenda {
+    background-color: rgb(255, 255, 255);
+    width: 673px;
+    height: 350px;
+    padding: 5px;
+    border-radius: 5px;
+    border: solid 1px $medium-green;
+    margin: 30px auto;
+
+    .calendar-container {
+      // border: solid 1px $light-green;
     }
   }
 
