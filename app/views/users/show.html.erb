@@ -50,9 +50,40 @@
   <%= render "users/calendar", slots: @slots, professional: @professional, booking: @booking %>
 </div>
 
-  <div style="width: 100%; height: 500px; margin-top: 220px; margin-bottom: 100px; position: sticky; top: 0;"
+<div class="reviews-container">
+  <% @professional.reviews.each do |review| %>
+    <div class="card-review">
+      <div class="header">
+        <div class="img">
+          <% if current_user.photo.attached? %>
+           <%= cl_image_tag current_user.photo.key, class:"avatar border border-light" %>
+         <% else %>
+           <%= image_tag "user (1).png", class: "avatar", alt: "dropdown menu" %>
+        <% end %>
+        </div>
+        <div class="names">
+          <h6><%= review.author.first_name.capitalize %> <%= review.author.last_name.capitalize %></h6>
+          <p><%= review.booking.animal.name %>'s owner</p>
+        </div>
+      </div>
+      <div class="review-content">
+        <p>" <%= review.content.capitalize %> "</p>
+      </div>
+      <div class="review-footer">
+        <p><%= display_stars(review.rating) %></p>
+        <p><%= review.created_at.strftime('%d/%m/%Y') %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+</div>
+
+
+
+ <div style="width: 80%; height: 100px; margin-top: 500px; margin-bottom: 100px; position: sticky; top: 0;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
