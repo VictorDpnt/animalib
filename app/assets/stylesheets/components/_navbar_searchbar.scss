@@ -5,14 +5,16 @@
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  }
+  font-size: 1.5rem;
+}
 
 .accordion-collapse {
   position: absolute;
   margin-top: 18px;
   left: 800px;
   .form-outline {
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
     border-radius: 50px;
     .nav-srh {
       border-radius: 50px;
@@ -47,11 +49,11 @@
       outline: none !important;
     }
     .fa-solid {
-      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+        rgba(0, 0, 0, 0.23) 0px 6px 6px;
     }
   }
 }
-
 
 .nav-btn-srh {
   border-radius: 50px;

@@ -1,7 +1,8 @@
-<div class="container">
- <div class="header-pro">
-  <div class="infos">
-    <div class="img-container">
+<div class="container show-container">
+  <div>
+    <div class="header-pro">
+      <div class="infos">
+      <div class="img-container">
       <% if @professional.photo.attached? %>
         <%= cl_image_tag @professional.photo.key %>
       <% else %>
@@ -46,11 +47,51 @@
   </div>
 </div>
 
-<div>
-  <%= render "users/calendar", slots: @slots, professional: @professional, booking: @booking %>
+  <div class="agenda">
+    <%= render "users/calendar_card", slots: ComputeNextDaysSlots.new(user: @professional).call, professional: @professional %>
+  </div>
+
+
+
+
+</div>
+ <div style="width: 80%; height: 80vh; sticky-bar;"
+
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
 </div>
 
-<div class="reviews-container">
+<div class="slider-container">
+  <div class="reviews-container">
+  <% @professional.reviews.each do |review| %>
+    <div class="card-review">
+      <div class="header">
+        <div class="img">
+          <% if current_user.photo.attached? %>
+           <%= cl_image_tag current_user.photo.key, class:"avatar border border-light" %>
+         <% else %>
+           <%= image_tag "user (1).png", class: "avatar", alt: "dropdown menu" %>
+        <% end %>
+        </div>
+        <div class="names">
+          <h6><%= review.author.first_name.capitalize %> <%= review.author.last_name.capitalize %></h6>
+          <p><%= review.booking.animal.name %>'s owner</p>
+        </div>
+      </div>
+      <div class="review-content">
+        <p>" <%= review.content.capitalize %> "</p>
+      </div>
+      <div class="review-footer">
+        <p><%= display_stars(review.rating) %></p>
+        <p><%= review.created_at.strftime('%d/%m/%Y') %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="reviews-container">
   <% @professional.reviews.each do |review| %>
     <div class="card-review">
       <div class="header">
@@ -77,13 +118,4 @@
   <% end %>
 </div>
 
-
 </div>
-
-
-
- <div style="width: 80%; height: 100px; margin-top: 500px; margin-bottom: 100px; position: sticky; top: 0;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
