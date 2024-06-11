@@ -1,22 +1,27 @@
-<div class="row justify-content-center pb-1 me-4">
-  <div class="col-sm-8 mt-1 form-outline" data-mdb-input-init>
-    <%= form_with url: users_path, method: :get, class: "d-flex" do |f| %>
-      <% icon = "<i class='fa-solid fa-magnifying-glass'></i>" %>
-      <%= text_field_tag :query,
+  <div class="accordion-item">
+    <div class="accordion-header">
+      <button class="fa-solid fa-magnifying-glass btn-loupe" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      </button>
+    </div>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="col-sm-8 mt-1 form-outline" data-mdb-input-init>
+        <%= form_with url: users_path, method: :get, class: "d-flex" do |f| %>
+        <%= text_field_tag :query,
           params[:query],
           class: "form-control nav-srh border border-light border-2 border-end-0",
           placeholder: "Search by name"
-      %>
-      <%= text_field_tag :address,
+        %>
+        <%= text_field_tag :address,
           params[:address],
           class: "form-control nav-loc-srh border border-light border-2 border-end-0",
           placeholder: "Where?"
-      %>
-      <%= f.select :profession,
-      options_for_select(User.where.not(profession: nil).pluck(:profession).uniq.unshift(["Select a profession", ""]), selected: params[:profession]), {}, class: "form-select mx-1",
-      class: "profession-srh border border-light border-2 border-end-0"
-      %>
-    <%= submit_tag "Search", name: "", class: "btn rounded-right border border-light border-2 nav-btn-srh text-light" %>
-    <% end %>
+        %>
+        <%= f.select :profession,
+        options_for_select(User.where.not(profession: nil).pluck(:profession).uniq.unshift(["Select a profession", ""]), selected: params[:profession]), {}, class: "form-select mx-1",
+        class: "profession-srh border border-light border-2 border-end-0"
+        %>
+        <button class='fa-solid fa-magnifying-glass btn rounded-right border border-light border-2 nav-btn-srh text-light'> </button>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
