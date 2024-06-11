@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:edit, :update, :destroy]
 
   resource :profile, only: :show
+  resources :reviews, only: [ :new , :create ]
 
   resources :animals, except: [:show] do
     resources :health_records, only: [:create, :index]
