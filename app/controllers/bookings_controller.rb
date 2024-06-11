@@ -10,15 +10,31 @@ class BookingsController < ApplicationController
   #   @reasons = ["Follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
   # end
 
+  def new
+    set_professional
+    @booking = Booking.new(date: params[:date])
+    render json: {
+      html: render_to_string(
+        partial: 'bookings/booking_form',
+        locals: { professional: @professional, booking: @booking },
+        formats: :html,
+        layout: false
+      )
+    }.to_json
+  end
+
   def create
     set_professional
     @booking = Booking.new(booking_params)
     @booking.user = @professional
-
-    if @booking.save
-      redirect_to animal_health_records_path(@booking.animal.id)
-    else
-      render "users/show", status: :unprocessable_entity
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to animal_health_records_path(@booking.animal.id) }
+        format.json
+      else
+        format.html { render "users/show", status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 
