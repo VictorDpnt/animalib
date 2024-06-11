@@ -58,6 +58,5 @@ class UsersController < ApplicationController
 
   def set_booking
     @booking = Booking.new(date: params[:date])
-    @reasons = ["Follow-up consultation", "Vaccination", "Sterilization", "Digestive diseases", "Trauma", "Other"]
   end
 end
