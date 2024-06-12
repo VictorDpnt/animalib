@@ -1,58 +1,28 @@
-.btn-loupe {
-  background-color: $dark-green;
-  color: $white;
-  border: none;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 1.5rem;
-  margin-right: 20px;
+.nav-srh {
+  border-radius: 50px;
+  border-top-right-radius: 0 !important ;
+  border-bottom-right-radius: 0 !important ;
+  height: 35px;
+  width: 400px !important;
+  border-radius: 50px;
+
+  &::placeholder {
+    color: #969696 !important;
+  }
 }
 
-.accordion-collapse {
-  position: absolute;
-  margin-top: 18px;
-  left: 800px;
-  .form-outline {
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-      rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    border-radius: 50px;
-    .nav-srh {
-      border-radius: 50px;
-      border-top-right-radius: 0 !important ;
-      border-bottom-right-radius: 0 !important ;
-      height: 35px;
-      width: 400px !important;
-      border-radius: 50px;
+.nav-loc-srh {
+  border-top-left-radius: 0 !important ;
+  border-bottom-left-radius: 0 !important ;
+  border-top-right-radius: 0 !important ;
+  border-bottom-right-radius: 0 !important ;
+  height: 35px;
+  width: 300px !important;
+  box-shadow: none !important;
+  outline: none !important;
 
-      &::placeholder {
-        color: #969696 !important;
-      }
-    }
-    .nav-loc-srh {
-      border-top-left-radius: 0 !important ;
-      border-bottom-left-radius: 0 !important ;
-      border-top-right-radius: 0 !important ;
-      border-bottom-right-radius: 0 !important ;
-      height: 35px;
-      width: 300px !important;
-      box-shadow: none !important;
-      outline: none !important;
-
-      &::placeholder {
-        color: #969696;
-      }
-    }
-    .profession-srh {
-      color: #969696 !important;
-      height: 35px;
-      box-shadow: none !important;
-      outline: none !important;
-    }
-    .fa-solid {
-      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-        rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    }
+  &::placeholder {
+    color: #969696;
   }
 }
 
@@ -69,4 +39,11 @@
     background-color: $white !important;
     color: $black !important;
   }
+}
+
+.profession-srh {
+  color: #969696 !important;
+  height: 35px;
+  box-shadow: none !important;
+  outline: none !important;
 }
