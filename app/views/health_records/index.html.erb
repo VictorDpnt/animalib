@@ -4,23 +4,17 @@
 
 <div class="btn-add-pets-containerr">
     <button type="button" class="add-recordd" data-toggle="modal" data-target="#exampleModalCenter">
-       <p type="button" class="fa-solid fa-circle-plus add-record" data-bs-toggle="modal" data-bs-target="#exampleModal"></p>
+       <p class="fa-solid fa-circle-plus add-record" data-bs-toggle="modal" data-bs-target="#exampleModal"></p>
     </button>
 </div>
 
 <div class="big-container-records">
   <div class="records-container">
-    <%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-      <i class="fa-solid fa-notes-medical add-record"></i>
-    </button> %>
     <% @healthrecords.each do |record| %>
       <%= render 'health_records/my_healthrecord', record: record, animal: @animal %>
     <% end %>
   </div>
-
-
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -34,14 +28,14 @@
           <div class="record-new">
             <%= simple_form_for [@animal, @healthrecord] do |f| %>
               <%= f.input :history, as: :text, input_html: { class: "input-record" } %>
+              <div class="footer">
+                <button type="button" class="close-modal" data-dismiss="modal">Close</button>
+                <%= f.submit "Create a record", class: "submit-record" %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
-       <div class="footer ">
-         <button type="button" class="close-modal" data-dismiss="modal">Close</button>
-         <%= f.submit "Create a record", class: "submit-record" %>
-       </div>
-      <% end %>
     </div>
   </div>
 </div>
