@@ -1,6 +1,6 @@
 <div class="container-favs">
   <% @favorites.each do |favorite| %>
-  
+
     <div class="infooos-container">
       <div class="image-title-container">
         <div class="image-container">
@@ -9,14 +9,24 @@
           <% else %>
             <%= image_tag "professional_avatar/#{favorite.professional.profession.downcase}.png", class: "pro-photo" %>
           <% end %>
+
+
+
+          <%= link_to favorite_path(favorite.professional, source: "favorites"), data: { turbo_method: :delete } do %>
+            <i class="fa-solid fa-heart heart-fav"></i>
+          <% end %>
+
+
         </div>
 
         <div class="infos">
-          <p><strong><%= favorite.professional.company_name.upcase %> </strong></p>
-          <% if favorite.professional.profession == "veterinarian" %>
-            <p><strong>Dr. <%= favorite.professional.last_name.capitalize %></strong> - <em><%= favorite.professional.profession.capitalize %></em></p>
-          <% else %>
-            <p><strong><%= favorite.professional.first_name.capitalize %> <%= favorite.professional.last_name.capitalize %></strong> - <em><%= favorite.professional.profession.capitalize %></em></p>
+          <%= link_to user_path(favorite.professional) do %>
+            <p><strong><%= favorite.professional.company_name.upcase %> </strong></p>
+              <% end %>
+            <% if favorite.professional.profession == "veterinarian" %>
+              <p><strong>Dr. <%= favorite.professional.last_name.capitalize %></strong> - <em><%= favorite.professional.profession.capitalize %></em></p>
+            <% else %>
+              <p><strong><%= favorite.professional.first_name.capitalize %> <%= favorite.professional.last_name.capitalize %></strong> - <em><%= favorite.professional.profession.capitalize %></em></p>
           <% end %>
         </div>
       </div>
@@ -26,8 +36,5 @@
         <p class="text-card-pro"><strong><i class="fa-solid fa-phone"></i></strong> <%= favorite.professional.phone_number %></p>
       </div>
     </div>
-
-
-  
   <% end %>
 </div>

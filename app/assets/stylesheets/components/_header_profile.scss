@@ -61,6 +61,7 @@
         }
 
         .coordonnates-profile {
+          padding-top: 10px;
           display: flex;
           justify-content: flex-start;
           align-items: center;
@@ -82,9 +83,10 @@
     .nav-profile {
       display: flex;
       justify-content: space-between;
-      margin-top: 15px;
+      margin-top: 10px;
       width: 30%;
       text-transform: capitalize;
+      padding-bottom: 5px;
 
       p,
       a {
