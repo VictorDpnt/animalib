@@ -2,9 +2,12 @@
   background-size: cover;
   background-position: center;
   padding-bottom: 80px;
-  width: 100 vw;
-  height: 500px;
-  background-image: linear-gradient(rgba(0,0,0,0.9),rgba(243,251,249,0.05) 40%), url(banner_photo.jpg);
+  height: 100vh;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.9),
+      rgba(243, 251, 249, 0.05) 40%
+    ),
+    url(home-page-img.png);
 }
 
 .banner h1 {
@@ -20,7 +23,7 @@
 .slogan {
   font-size: 20px;
   color: white;
-  opacity: .7;
+  opacity: 0.7;
   text-shadow: -1px 0px 10px rgb(0, 0, 0);
   animation: animate 2s linear forwards;
 }
