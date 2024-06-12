@@ -387,6 +387,148 @@ professional_data_sitter_bordeaux.each_with_index do |pro_datum, index|
   user.save!
   puts "User pet-sitter n°#{index} created!!"
 end
+
+#--> Creating professionals from Marseille
+
+puts "Creating vets from Marseille..."
+professional_data_vet_marseille = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Marseille').call
+professional_data_vet_marseille.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'veterinarian'
+  user.save!
+  puts "User veterinarian n°#{index} created!!"
+end
+
+puts "Creating groomers from Marseille..."
+professional_data_groomer_marseille = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Marseille').call
+professional_data_groomer_marseille.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'groomer'
+  user.save!
+  puts "User groomer n°#{index} created!!"
+end
+
+puts "Creating pet-sitters from Marseille..."
+professional_data_sitter_marseille = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Marseille').call
+professional_data_sitter_marseille.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'pet-sitter'
+  user.save!
+  puts "User pet-sitter n°#{index} created!!"
+end
+
+#--> Creating professionals from Lille
+
+puts "Creating vets from Lille..."
+professional_data_vet_lille = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Lille').call
+professional_data_vet_lille.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'veterinarian'
+  user.save!
+  puts "User veterinarian n°#{index} created!!"
+end
+
+puts "Creating groomers from Lille..."
+professional_data_groomer_lille = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Lille').call
+professional_data_groomer_lille.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'groomer'
+  user.save!
+  puts "User groomer n°#{index} created!!"
+end
+
+puts "Creating pet-sitters from Lille..."
+professional_data_sitter_lille = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Lille').call
+professional_data_sitter_lille.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'pet-sitter'
+  user.save!
+  puts "User pet-sitter n°#{index} created!!"
+end
+
+#--> Creating professionals from Strasbourg
+
+puts "Creating vets from Strasbourg..."
+professional_data_vet_strasbourg = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Strasbourg').call
+professional_data_vet_strasbourg.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'veterinarian'
+  user.save!
+  puts "User veterinarian n°#{index} created!!"
+end
+
+puts "Creating groomers from Strasbourg..."
+professional_data_groomer_strasbourg = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Strasbourg').call
+professional_data_groomer_strasbourg.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'groomer'
+  user.save!
+  puts "User groomer n°#{index} created!!"
+end
+
+puts "Creating pet-sitters from Strasbourg..."
+professional_data_sitter_strasbourg = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Strasbourg').call
+professional_data_sitter_strasbourg.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'pet-sitter'
+  user.save!
+  puts "User pet-sitter n°#{index} created!!"
+end
+
 #--> Descriptions
 
 puts "Add description to each vet..."
