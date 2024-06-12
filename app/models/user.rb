@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :professionals, through: :favorites, source: :professional
 
-
+  before_validation :set_profession, on: :create
 
   validates :first_name, :last_name, :email, :address, presence: true
 
@@ -23,4 +23,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def set_profession
+    self.profession = nil unless profession.present?
+  end
 end
