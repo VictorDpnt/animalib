@@ -17,6 +17,10 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find_by(professional: @user, user: current_user)
     @favorite.destroy if @favorite
 
-    redirect_to user_path(@user), notice: "Favorite removed successfully"
+    if params[:source] == "favorites"
+      redirect_to favorites_path, notice: "Favorite removed successfully"
+    else
+      redirect_to user_path(@user), notice: "Favorite removed successfully"
+    end
   end
 end

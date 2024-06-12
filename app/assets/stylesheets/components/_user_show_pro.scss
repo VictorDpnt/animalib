@@ -1,4 +1,6 @@
-.container {
+.show-container {
+  display: grid;
+  grid-template-columns: 65% 45%;
   .circular-image {
     width: 250px;
     height: 250px;
@@ -28,7 +30,7 @@
         top: 20px;
         right: 20px;
 
-        .fa-heart{
+        .fa-heart {
           font-size: 1.7rem;
         }
       }
@@ -36,7 +38,7 @@
       .img-container {
         position: absolute;
         left: -125px;
-        bottom: 0;
+        bottom: -5px;
         width: 200px;
         height: 200px;
         overflow: hidden;
@@ -46,6 +48,50 @@
           height: 100%;
           object-fit: contain;
         }
+      }
+
+      h5 {
+        margin-bottom: -2px;
+      }
+      .prof {
+        opacity: 80%;
+        font-size: 0.8rem;
+      }
+
+      .infoss {
+        margin-top: 15px;
+
+        .fa-solid {
+          margin-right: 5px;
+        }
+
+        h6 {
+          font-size: 0.9rem;
+
+          &:first-child {
+            margin-bottom: 3px;
+          }
+        }
+      }
+
+      h6 {
+        margin: 0;
+      }
+    }
+  }
+  .agenda {
+    background-color: rgb(255, 255, 255);
+    width: 673px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px $medium-green;
+    margin: 30px auto;
+
+    .calendar-container {
+      height: 100% !important;
+      .availableslot {
+        width: 90px !important;
       }
     }
   }

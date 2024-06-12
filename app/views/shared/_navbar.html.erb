@@ -1,13 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-lewagon sticky-top nav-other shadow">
-  <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <div class="d-flex">
         <h5 class="fw-bold mt-2 text-light mx-3">AnimaLib <i class="fa-solid fa-paw"></i></h5>
       </div>
     <% end %>
 
+  <div class="container-fluid">
+     <%= link_to animals_path do %>
+      <button class='fa-solid fa-paw btn-pet'> </button>
+    <% end %>
+   <%= link_to profile_path do %>
+      <button class='fa-solid fa-calendar-days btn-booking'> </button>
+    <% end %>
+     <%= link_to favorites_path do %>
+      <button class='fa-solid fa-heart btn-favorite'> </button>
+    <% end %>
     <%= render partial: "shared/navbar_searchbar" %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,11 +40,6 @@
               <p class="text-center text-black border-bottom pb-1 fw-bold fs-6"><%= current_user.first_name%> <%= current_user.last_name%></p>
 
               <%= link_to "My profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "My favorites", favorites_path, class: "dropdown-item" %> <%# <%= link_to "My products", myProducts_products_path, class: "dropdown-item" %>
-              <%= link_to "My pets", animals_path, class: "dropdown-item" %>
-              <%= link_to "My bookings", profile_path, class: "dropdown-item" %>
-              <%# <%= link_to "My products", myProducts_products_path, class: "dropdown-item" %>
-
               <%= link_to "<i class='fa-solid fa-right-to-bracket'></i>".html_safe + "  Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger " %>
             </div>
 

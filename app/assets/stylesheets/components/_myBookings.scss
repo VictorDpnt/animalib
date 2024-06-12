@@ -79,3 +79,31 @@
     }
   }
 }
+
+.btn-closee {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  background: #cc4e5c;
+  font-size: 16px;
+  transition: 0.3s;
+  width: fit-content;
+  margin-right: 10px;
+
+  &:hover {
+    color: black;
+    background: #aea1a2;
+  }
+}
+
+.btn-submit {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px !important;
+  color: white;
+  background: $dark-green;
+  font-size: 16px;
+  transition: 0.3s;
+  width: fit-content;
+}
