@@ -1,4 +1,8 @@
 .profile {
+  .grid-show {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
   h1 {
     font-family: $headers-font;
   }

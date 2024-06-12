@@ -87,3 +87,5 @@ gem "slot_machine"
 gem 'faraday'
 
 gem 'faker'
+
+gem "simple_calendar", "~> 2.4"

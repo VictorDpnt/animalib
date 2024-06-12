@@ -26,9 +26,11 @@
     </div>
     <div class="cancel-container mt-4">
       <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee " %>
-      <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
-        Add a review
-      </button>
+      <% if booking.date < Time.current %>
+    <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
+      Add a review
+    </button>
+  <% end %>
     </div>
 
   </div>
