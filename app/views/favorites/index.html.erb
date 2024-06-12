@@ -9,26 +9,22 @@
           <% else %>
             <%= image_tag "professional_avatar/#{favorite.professional.profession.downcase}.png", class: "pro-photo" %>
           <% end %>
-
-
-
-          <%= link_to favorite_path(favorite.professional, source: "favorites"), data: { turbo_method: :delete } do %>
-            <i class="fa-solid fa-heart heart-fav"></i>
-          <% end %>
-
-
         </div>
 
+
         <div class="infos">
-          <%= link_to user_path(favorite.professional) do %>
-            <p><strong><%= favorite.professional.company_name.upcase %> </strong></p>
-              <% end %>
+            <%= link_to user_path(favorite.professional) do %>
+              <p><strong><%= favorite.professional.company_name.upcase %> </strong></p>
+            <% end %>
             <% if favorite.professional.profession == "veterinarian" %>
               <p><strong>Dr. <%= favorite.professional.last_name.capitalize %></strong> - <em><%= favorite.professional.profession.capitalize %></em></p>
             <% else %>
               <p><strong><%= favorite.professional.first_name.capitalize %> <%= favorite.professional.last_name.capitalize %></strong> - <em><%= favorite.professional.profession.capitalize %></em></p>
           <% end %>
         </div>
+        <%= link_to favorite_path(favorite.professional, source: "favorites"), data: { turbo_method: :delete } do %>
+            <i class="fa-solid fa-heart heart-fav"></i>
+        <% end %>
       </div>
 
       <div class="coordonnees">
