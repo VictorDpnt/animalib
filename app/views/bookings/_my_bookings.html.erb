@@ -25,12 +25,15 @@
       <p><strong>Reason:</strong> <%= booking.reason %></p>
     </div>
     <div class="cancel-container mt-4">
+
+      <% if booking.date > Time.current %>
       <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee " %>
+      <% end %>
       <% if booking.date < Time.current %>
     <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
       Add a review
     </button>
-  <% end %>
+      <% end %>
     </div>
 
   </div>
