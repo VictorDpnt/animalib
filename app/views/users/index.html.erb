@@ -1,6 +1,11 @@
 <div class="container big-container">
 
   <div class="pro-cards-container">
+    <% if params[:profession].present? %>
+      <p class="fw-bold"> <%= @professionals.count %> <%= params[:profession] %>s available </p>
+    <% else %>
+      <p class="fw-bold"> <%= @professionals.count %> professionals available </p>
+    <% end %>
     <% @professionals.each do |pro| %>
       <div class="card-pro">
 
