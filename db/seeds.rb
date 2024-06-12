@@ -1,6 +1,7 @@
 require "faker"
 
 puts "Cleaning database..."
+Review.destroy_all
 Booking.destroy_all
 Animal.destroy_all
 User.destroy_all
