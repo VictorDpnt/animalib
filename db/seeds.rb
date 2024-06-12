@@ -199,9 +199,11 @@ groomer_descriptions = [
   "Groomer offering workshops and training for pet owners on home grooming."
 ]
 
+#--> Creating professionals from Paris
+
 professional_data_vet = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Paris').call
 
-puts "Creating vets..."
+puts "Creating vets from Paris..."
 professional_data_vet.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
@@ -215,14 +217,7 @@ professional_data_vet.each_with_index do |pro_datum, index|
   puts "User veterinarian n°#{index} created!!"
 end
 
-puts "Add description to each vet..."
-vet_users = User.where(profession: "veterinarian")
-
-vet_users.each_with_index do |user, index|
-  user[:description] = vet_descriptions[index]
-  user.save!
-end
-
+puts "Creating groomers from Paris..."
 professional_data_groomer = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Paris').call
 professional_data_groomer.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
@@ -237,14 +232,7 @@ professional_data_groomer.each_with_index do |pro_datum, index|
   puts "User groomer n°#{index} created!!"
 end
 
-puts "Add description to each groomer..."
-groomer_users = User.where(profession: "groomer")
-
-groomer_users.each_with_index do |user, index|
-  user[:description] = groomer_descriptions[index]
-  user.save!
-end
-
+puts "Creating pet-sitters from Paris..."
 professional_data_sitter = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Paris').call
 professional_data_sitter.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
@@ -259,16 +247,11 @@ professional_data_sitter.each_with_index do |pro_datum, index|
   puts "User pet-sitter n°#{index} created!!"
 end
 
-puts "Add description to each pet-sitter..."
-pet_sitter_users = User.where(profession: "pet-sitter")
+#--> Creating professionals from Lyon
 
-pet_sitter_users.each_with_index do |user, index|
-  user[:description] = pet_sitter_descriptions[index]
-  user.save!
-end
-
-professional_data_vet_brdx = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'bordeaux').call
-professional_data_vet_brdx.each_with_index do |pro_datum, index|
+puts "Creating vets from Lyon..."
+professional_data_vet_lyon = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Lyon').call
+professional_data_vet_lyon.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
@@ -281,16 +264,9 @@ professional_data_vet_brdx.each_with_index do |pro_datum, index|
   puts "User veterinarian n°#{index} created!!"
 end
 
-puts "Add description to each vet..."
-vet_users = User.where(profession: "veterinarian")
-
-vet_users.each_with_index do |user, index|
-  user[:description] = vet_descriptions[index]
-  user.save!
-end
-
-professional_data_groomer_brdx = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'bordeaux').call
-professional_data_groomer_brdx.each_with_index do |pro_datum, index|
+puts "Creating groomers from Lyon..."
+professional_data_groomer_lyon = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Lyon').call
+professional_data_groomer_lyon.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
@@ -303,16 +279,9 @@ professional_data_groomer_brdx.each_with_index do |pro_datum, index|
   puts "User groomer n°#{index} created!!"
 end
 
-puts "Add description to each groomer..."
-groomer_users = User.where(profession: "groomer")
-
-groomer_users.each_with_index do |user, index|
-  user[:description] = groomer_descriptions[index]
-  user.save!
-end
-
-professional_data_sitter_brdx = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'bordeaux').call
-professional_data_sitter_brdx.each_with_index do |pro_datum, index|
+puts "Creating pet-sitters from Lyon..."
+professional_data_sitter_lyon = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Lyon').call
+professional_data_sitter_lyon.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
@@ -325,6 +294,117 @@ professional_data_sitter_brdx.each_with_index do |pro_datum, index|
   puts "User pet-sitter n°#{index} created!!"
 end
 
+#--> Creating professionals from Rennes
+
+puts "Creating vets from Rennes..."
+professional_data_vet_rennes = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Rennes').call
+professional_data_vet_rennes.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'veterinarian'
+  user.save!
+  puts "User veterinarian n°#{index} created!!"
+end
+
+puts "Creating groomers from Rennes..."
+professional_data_groomer_rennes = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Rennes').call
+professional_data_groomer_rennes.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'groomer'
+  user.save!
+  puts "User groomer n°#{index} created!!"
+end
+
+puts "Creating pet-sitters from Rennes..."
+professional_data_sitter_rennes = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Rennes').call
+professional_data_sitter_rennes.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'pet-sitter'
+  user.save!
+  puts "User pet-sitter n°#{index} created!!"
+end
+
+#--> Creating professionals from Bordeaux
+
+puts "Creating vets from Bordeaux..."
+professional_data_vet_bordeaux = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Bordeaux').call
+professional_data_vet_bordeaux.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'veterinarian'
+  user.save!
+  puts "User veterinarian n°#{index} created!!"
+end
+
+puts "Creating groomers from Bordeaux..."
+professional_data_groomer_bordeaux = GetProfessionalFromYelp.new(profession_name: 'groomer', location: 'Bordeaux').call
+professional_data_groomer_bordeaux.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'groomer'
+  user.save!
+  puts "User groomer n°#{index} created!!"
+end
+
+puts "Creating pet-sitters from Bordeaux..."
+professional_data_sitter_bordeaux = GetProfessionalFromYelp.new(profession_name: 'pet sitting', location: 'Bordeaux').call
+professional_data_sitter_bordeaux.each_with_index do |pro_datum, index|
+  first_name = Faker::Name.first_name
+
+  user = User.new(pro_datum)
+  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.first_name = first_name
+  user.last_name = Faker::Name.last_name
+  user.password = '123456'
+  user.profession = 'pet-sitter'
+  user.save!
+  puts "User pet-sitter n°#{index} created!!"
+end
+#--> Descriptions
+
+puts "Add description to each vet..."
+vet_users = User.where(profession: "veterinarian")
+
+vet_users.each_with_index do |user, index|
+  user[:description] = vet_descriptions[index]
+  user.save!
+end
+
+puts "Add description to each groomer..."
+groomer_users = User.where(profession: "groomer")
+
+groomer_users.each_with_index do |user, index|
+  user[:description] = groomer_descriptions[index]
+  user.save!
+end
+
 puts "Add description to each pet-sitter..."
 pet_sitter_users = User.where(profession: "pet-sitter")
 
@@ -332,6 +412,8 @@ pet_sitter_users.each_with_index do |user, index|
   user[:description] = pet_sitter_descriptions[index]
   user.save!
 end
+
+#-------------------------------------------------------------------------------
 
 # professional_data = GetProfessionalFromYelp.new(profession_name: 'veterinarian', location: 'Paris').call
 # professional_data.each_with_index do |pro_datum, index|
