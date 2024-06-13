@@ -52,6 +52,14 @@ small {
   color: white;
 }
 
+.simple-calendar .calendar-heading {
+  font-weight: bold;
+}
+
+.simple-calendar .table {
+  border-radius: 10px !important;
+}
+
 .simple-calendar .day {
   background-color: #eafaff;
 }
