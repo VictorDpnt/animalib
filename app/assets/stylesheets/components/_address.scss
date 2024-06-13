@@ -13,13 +13,11 @@
   padding: 10px;
   outline: none !important;
   border: none;
-  width: 350px;
+  width: 100%;
   background: #f4f4f4;
   border-left: 1px solid rgba(128, 128, 128, 0.438);
   border-right: 1px solid rgba(128, 128, 128, 0.438);
   --bs-border-opacity: 1;
-  // background-color: $white !important;
-  // background-clip: padding-box;
 
   &::placeholder {
     color: #969696;
@@ -38,8 +36,9 @@
     li {
       display: flex;
       cursor: pointer;
+      font-size: 0.5rem;
 
-      &:hover{
+      &:hover {
         background-color: rgba(211, 211, 211, 0.428);
       }
     }
@@ -59,8 +58,15 @@
 }
 
 .mapboxgl-ctrl-geocoder--suggestion {
-  display: flex;
   padding: 5px 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
+.mapboxgl-ctrl-geocoder--suggestion-address {
+  font-size: 0.7rem;
+  color: #8a8383;
+}
+
+.mapboxgl-ctrl-geocoder--powered-by {
+  display: none !important;
+}

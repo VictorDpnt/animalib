@@ -23,8 +23,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-        <ul class="navbar-nav ms-auto align-items-center">
-        </ul>
         <ul class="navbar-nav me-auto align-items-center">
           <li class="nav-item dropdown">
           <a href="#" class="avatar position-relative mx-3" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,9 +31,7 @@
               <% else %>
              <%= image_tag "user (1).png", class: "avatar", alt: "dropdown menu" %>
             <% end %>
-              <%# <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"> %>
-                <span class="visually-hidden">New alerts</span>
-              </span>
+
           </a>
             <div class="dropdown-menu dropdown-menu-end rounded" aria-labelledby="navbarDropdown">
               <p class="text-center text-black border-bottom pb-1 fw-bold fs-6"><%= current_user.first_name%> <%= current_user.last_name%></p>
