@@ -12,6 +12,11 @@
     width: 400px;
     border-radius: 10px;
     margin: 15px;
+
+    .borde-change {
+      border-color: red;
+    }
+    
     p {
       margin: 0;
     }
@@ -79,6 +84,8 @@
     }
   }
 }
+
+
 
 .btn-closee {
   padding: 10px 20px;

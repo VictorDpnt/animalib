@@ -1,3 +1,4 @@
+
 <div class="my-bookings-container">
   <h1 class="text-center"><%= booking.animal.name.capitalize %></h1>
   <div class="info-veto">
@@ -27,7 +28,7 @@
     <div class="cancel-container mt-4">
 
       <% if booking.date > Time.current %>
-      <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee " %>
+      <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee borde-change" %>
       <% end %>
       <% if booking.date < Time.current %>
     <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
@@ -38,6 +39,9 @@
 
   </div>
 </div>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
