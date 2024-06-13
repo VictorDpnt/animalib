@@ -6,7 +6,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    booking = Booking.find(params[:booking_id])
     @review = Review.new(review_params)
+    @review.booking = booking
     if @review.save
       redirect_to profile_path, notice: 'Review was successfully created.'
     else
