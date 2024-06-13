@@ -5,6 +5,7 @@
   position: sticky;
   top: 100px;
 
+
   .calendar-heading {
     display: flex;
     justify-content: space-between;
@@ -22,6 +23,7 @@ tr {
 
   th {
     text-align: center !important;
+    font-weight: bold !important;
   }
 }
 
@@ -29,7 +31,7 @@ tr {
   color: white;
   padding: 5px 5px;
   border-radius: 4px;
-  background: #eafaff;
+  background: #d7f6ff;
   transition: background 0.3s ease;
   margin: 3px auto;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -46,13 +48,24 @@ small {
   margin-top: -10px;
 }
 .booking:hover {
-  background: #c7dfe6;
+  background-color: #00c3fe;
   color: white;
 }
 
-.prev-month {
-  background-color: red;
+.simple-calendar .day {
+  background-color: #eafaff;
 }
+
+.simple-calendar .today {
+  background-color: white !important;
+  font-weight: bold;
+
+}
+
+.simple-calendar .prev-month {
+  background-color: #b2d1d9 !important;
+}
+
 // .simple-calendar {
 //   table {
 //     min-height: 80vh;
