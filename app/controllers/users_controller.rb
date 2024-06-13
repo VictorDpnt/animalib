@@ -17,15 +17,15 @@ class UsersController < ApplicationController
       @professionals = @professionals.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
-    if params[:address].present?
-      @professionals = @professionals.where("users.address ILIKE ?", "%#{params[:address]}%")
-      # @professionals_located = @professionals
-    end
-
     if params[:profession].present?
       @professionals = @professionals.where("users.profession ILIKE ?", "%#{params[:profession]}%")
     end
 
+    if params[:address].present?
+      @professionals = @professionals.near(params[:address], 2)
+      # @professionals = @professionals.where("users.address ILIKE ?", "%#{params[:address]}%")
+      # @professionals_located = @professionals
+    end
 
     @markers = @professionals.geocoded.map do |professional|
       {
