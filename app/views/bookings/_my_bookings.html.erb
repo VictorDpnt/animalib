@@ -1,43 +1,73 @@
-<div class="my-bookings-container">
-  <h1 class="text-center"><%= booking.animal.name.capitalize %></h1>
-  <div class="info-veto">
-    <div class="name-date">
-      <div class="name">
-        <div class="img-veto">
-          <% if booking.animal.photo.attached? %>
-            <%= cl_image_tag booking.animal.photo.key %>
-          <% else %>
-            <%= image_tag "veterinaire.png" %>
+<% if booking.date > Time.current %>
+  <div class="my-bookings-container">
+    <h1 class="text-center"><%= booking.animal.name.capitalize %></h1>
+    <div class="info-veto">
+      <div class="name-date">
+        <div class="name">
+          <div class="img-veto">
+            <% if booking.animal.photo.attached? %>
+              <%= cl_image_tag booking.animal.photo.key %>
+            <% else %>
+              <%= image_tag "veterinaire.png" %>
+            <% end %>
+          </div>
+          <div class="profession">
+          <%= link_to user_path(booking.user) do %>
+          <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
           <% end %>
-        </div>
-        <div class="profession">
-        <%= link_to user_path(booking.user) do %>
-        <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
-        <% end %>
-          <em><%= booking.user.profession.capitalize %></em>
+            <em><%= booking.user.profession.capitalize %></em>
+          </div>
         </div>
       </div>
+      <div class="coordonnees">
+        <p><strong>Date:</strong> <%= booking.date.strftime("%d/%m/%Y %H:%M") %></p>
+        <p><strong>Address:</strong> <%= booking.user.address %></p>
+        <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
+        <p><strong>Reason:</strong> <%= booking.reason %></p>
+      </div>
+      <div class="cancel-container mt-4">
+        <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee " %>
+      </div>
     </div>
-    <div class="coordonnees">
-      <p><strong>Date:</strong> <%= booking.date.strftime("%d/%m/%Y %H:%M") %></p>
-      <p><strong>Address:</strong> <%= booking.user.address %></p>
-      <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
-      <p><strong>Reason:</strong> <%= booking.reason %></p>
-    </div>
-    <div class="cancel-container mt-4">
-
-      <% if booking.date > Time.current %>
-      <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee " %>
-      <% end %>
-      <% if booking.date < Time.current %>
-    <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
+  </div>
+<% else %>
+  <div class="my-bookings-container-past">
+    <h1 class="text-center"><%= booking.animal.name.capitalize %></h1>
+    <div class="info-veto">
+      <div class="name-date">
+        <div class="name">
+          <div class="img-veto">
+            <% if booking.animal.photo.attached? %>
+              <%= cl_image_tag booking.animal.photo.key %>
+            <% else %>
+              <%= image_tag "veterinaire.png" %>
+            <% end %>
+          </div>
+          <div class="profession">
+          <%= link_to user_path(booking.user) do %>
+          <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+          <% end %>
+            <em><%= booking.user.profession.capitalize %></em>
+          </div>
+        </div>
+      </div>
+      <div class="coordonnees">
+        <p><strong>Date:</strong> <%= booking.date.strftime("%d/%m/%Y %H:%M") %></p>
+        <p><strong>Address:</strong> <%= booking.user.address %></p>
+        <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
+        <p><strong>Reason:</strong> <%= booking.reason %></p>
+      </div>
+      <div class="cancel-container mt-4">
+        <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
       Add a review
     </button>
-      <% end %>
+      </div>
     </div>
-
   </div>
-</div>
+<% end %>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
