@@ -94,7 +94,115 @@ vet_descriptions = [
   "Veterinary behaviorist providing training and behavior modification.",
   "Veterinary cardiologist performing heart surgeries and treatments.",
   "Veterinarian with a specialty in small mammal care.",
-  "Veterinary orthopedic surgeon treating bone and joint issues."
+  "Veterinary orthopedic surgeon treating bone and joint issues.",
+  "Specialist in veterinary dermatology, treating chronic skin conditions.",
+  "Veterinarian focused on providing compassionate end-of-life care.",
+  "Veterinary ophthalmologist specializing in eye surgeries.",
+  "Veterinarian skilled in ultrasound diagnostics.",
+  "Specialist in veterinary infectious diseases.",
+  "Veterinarian with expertise in veterinary dentistry.",
+  "Expert in avian medicine, treating both pet and wild birds.",
+  "Veterinary pathologist focusing on diagnostic testing.",
+  "Veterinarian dedicated to wildlife conservation.",
+  "Specialist in large animal medicine, focusing on cattle and horses.",
+  "Veterinarian with a focus on animal welfare and ethics.",
+  "Veterinary dermatologist treating allergies and skin infections.",
+  "Expert in pet behavior, offering consultations for problem behaviors.",
+  "Veterinary surgeon with a specialty in spinal surgery.",
+  "Veterinarian offering mobile veterinary services.",
+  "Specialist in animal rehabilitation and physiotherapy.",
+  "Veterinary oncologist specializing in chemotherapy and radiation therapy.",
+  "Veterinarian with a focus on pet dermatology and skin care.",
+  "Specialist in pet acupuncture and holistic therapies.",
+  "Veterinary nutritionist advising on pet diets and nutrition plans.",
+  "Expert in exotic animal care, treating birds, reptiles, and small mammals.",
+  "Veterinary radiologist interpreting imaging studies for diagnosis.",
+  "Veterinarian focused on geriatric pet care and age-related conditions.",
+  "Specialist in avian surgery and medical care.",
+  "Veterinary cardiologist diagnosing and treating heart disease.",
+  "Expert in veterinary pharmacology and medication management.",
+  "Veterinarian with a focus on emergency and critical care.",
+  "Specialist in orthopedics, treating fractures and joint problems.",
+  "Veterinarian offering laser therapy for pain management.",
+  "Veterinary acupuncturist providing alternative treatment options.",
+  "Specialist in veterinary toxicology, managing poisoning cases.",
+  "Veterinarian focused on animal welfare and shelter medicine.",
+  "Veterinary behaviorist helping to manage anxiety and aggression.",
+  "Expert in large animal surgery, treating farm animals.",
+  "Veterinary oncologist researching innovative cancer treatments.",
+  "Specialist in pet rehabilitation and sports medicine.",
+  "Veterinary neurologist treating brain and spinal cord disorders.",
+  "Veterinarian with a focus on preventive health care.",
+  "Specialist in feline health, offering comprehensive cat care.",
+  "Veterinary surgeon specializing in soft tissue surgery.",
+  "Veterinarian providing mobile care for convenience.",
+  "Specialist in animal welfare and ethical treatment.",
+  "Veterinary dermatologist managing chronic skin diseases.",
+  "Expert in behavioral medicine, working with anxious pets.",
+  "Veterinary radiologist specializing in advanced imaging techniques.",
+  "Veterinarian with expertise in orthopedic surgeries for pets.",
+  "Specialist in holistic veterinary care, offering acupuncture and herbal treatments.",
+  "Veterinary oncologist focusing on compassionate cancer care.",
+  "Expert in avian and exotic animal medicine.",
+  "Veterinarian dedicated to improving pet quality of life.",
+  "Specialist in integrative medicine, combining traditional and alternative therapies.",
+  "Veterinary parasitologist studying parasites affecting pets.",
+  "Veterinarian providing telemedicine consultations.",
+  "Specialist in large animal anesthesia and pain management.",
+  "Veterinary radiologist performing advanced diagnostic imaging.",
+  "Veterinarian with expertise in neonatal and pediatric animal care.",
+  "Specialist in wildlife rehabilitation and conservation.",
+  "Veterinary surgeon performing reconstructive and plastic surgery on pets.",
+  "Veterinarian focusing on preventive dentistry and oral health.",
+  "Specialist in veterinary pathology, interpreting lab results.",
+  "Veterinary toxicologist researching the effects of toxins on animals.",
+  "Expert in veterinary virology and infectious diseases.",
+  "Veterinarian with a focus on pain management and palliative care.",
+  "Specialist in animal epidemiology, studying disease outbreaks.",
+  "Veterinary immunologist researching immune responses in animals.",
+  "Veterinarian providing specialized care for diabetic pets.",
+  "Specialist in reproductive technology and artificial insemination.",
+  "Veterinary surgeon skilled in microsurgery and delicate procedures.",
+  "Veterinarian with a focus on sports medicine and injury prevention.",
+  "Specialist in veterinary informatics and data management.",
+  "Veterinarian dedicated to public health and zoonotic disease prevention.",
+  "Expert in aquatic animal medicine, treating fish and amphibians.",
+  "Veterinarian offering comprehensive wellness exams and preventive care.",
+  "Specialist in pet hospice care, providing end-of-life support.",
+  "Veterinary nutritionist creating tailored diets for pets with specific needs.",
+  "Veterinarian with a focus on exotic pet dentistry.",
+  "Specialist in veterinary pharmacology, developing new medications.",
+  "Veterinarian providing behavior modification and training programs.",
+  "Expert in holistic veterinary practices, including herbal medicine.",
+  "Veterinarian focusing on rehabilitative care for injured animals.",
+  "Specialist in integrative oncology, combining conventional and holistic treatments.",
+  "Veterinary dermatologist offering advanced skin care solutions.",
+  "Veterinarian with expertise in avian and reptile surgery.",
+  "Specialist in veterinary genetics, researching hereditary diseases.",
+  "Veterinarian providing comprehensive care for small mammals.",
+  "Expert in pain management and palliative care for terminally ill pets.",
+  "Veterinary cardiologist specializing in heart failure management.",
+  "Veterinarian offering telehealth consultations for remote care.",
+  "Specialist in veterinary acupuncture and Chinese medicine.",
+  "Veterinary surgeon performing complex orthopedic surgeries.",
+  "Expert in veterinary public health, focusing on disease control.",
+  "Veterinarian with a focus on animal welfare advocacy and education.",
+  "Specialist in small animal internal medicine.",
+  "Veterinarian providing advanced care for exotic pets and wildlife.",
+  "Expert in veterinary diagnostics and laboratory medicine.",
+  "Veterinarian with a focus on preventive health and wellness.",
+  "Specialist in veterinary emergency and critical care medicine.",
+  "Veterinary anesthesiologist ensuring safe anesthesia practices.",
+  "Veterinarian with expertise in avian health and medicine.",
+  "Specialist in veterinary oncology, offering cutting-edge cancer treatments.",
+  "Veterinary neurologist focusing on nervous system disorders.",
+  "Veterinarian providing integrative care, combining traditional and holistic approaches.",
+  "Expert in exotic animal care, including birds, reptiles, and amphibians.",
+  "Veterinary surgeon specializing in minimally invasive surgical techniques.",
+  "Veterinarian with a focus on geriatric pet care and management.",
+  "Specialist in veterinary infectious diseases, studying emerging pathogens.",
+  "Veterinary radiologist providing advanced diagnostic imaging services.",
+  "Veterinarian offering specialized care for pets with chronic conditions."
 ]
 
 pet_sitter_descriptions = [
@@ -212,7 +320,7 @@ professional_data_vet.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -227,7 +335,7 @@ professional_data_groomer.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -242,7 +350,7 @@ professional_data_sitter.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -259,7 +367,7 @@ professional_data_vet_lyon.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -274,7 +382,7 @@ professional_data_groomer_lyon.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -289,7 +397,7 @@ professional_data_sitter_lyon.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -306,7 +414,7 @@ professional_data_vet_rennes.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -321,7 +429,7 @@ professional_data_groomer_rennes.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -336,7 +444,7 @@ professional_data_sitter_rennes.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -353,7 +461,7 @@ professional_data_vet_bordeaux.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -368,7 +476,7 @@ professional_data_groomer_bordeaux.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -383,7 +491,7 @@ professional_data_sitter_bordeaux.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -400,7 +508,7 @@ professional_data_vet_marseille.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -415,7 +523,7 @@ professional_data_groomer_marseille.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -430,7 +538,7 @@ professional_data_sitter_marseille.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -447,7 +555,7 @@ professional_data_vet_lille.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -462,7 +570,7 @@ professional_data_groomer_lille.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -477,7 +585,7 @@ professional_data_sitter_lille.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -494,7 +602,7 @@ professional_data_vet_strasbourg.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -509,7 +617,7 @@ professional_data_groomer_strasbourg.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -524,7 +632,7 @@ professional_data_sitter_strasbourg.each_with_index do |pro_datum, index|
   first_name = Faker::Name.first_name
 
   user = User.new(pro_datum)
-  user.email = Faker::Internet.email(name: "#{first_name}#{index}", domain: 'gmail.com')
+  user.email = "#{SecureRandom.hex}@mail.com"
   user.first_name = first_name
   user.last_name = Faker::Name.last_name
   user.password = '123456'
@@ -540,6 +648,7 @@ vet_users = User.where(profession: "veterinarian")
 
 vet_users.each_with_index do |user, index|
   user[:description] = vet_descriptions[index]
+  user.email = Faker::Internet.email(name: "#{user.first_name}.#{user.last_name}#{user.id}", domain: 'gmail.com')
   user.save!
 end
 
@@ -548,6 +657,7 @@ groomer_users = User.where(profession: "groomer")
 
 groomer_users.each_with_index do |user, index|
   user[:description] = groomer_descriptions[index]
+  user.email = Faker::Internet.email(name: "#{user.first_name}.#{user.last_name}#{user.id}", domain: 'gmail.com')
   user.save!
 end
 
@@ -556,6 +666,7 @@ pet_sitter_users = User.where(profession: "pet-sitter")
 
 pet_sitter_users.each_with_index do |user, index|
   user[:description] = pet_sitter_descriptions[index]
+  user.email = Faker::Internet.email(name: "#{user.first_name}.#{user.last_name}#{user.id}", domain: 'gmail.com')
   user.save!
 end
 
