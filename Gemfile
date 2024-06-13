@@ -90,3 +90,7 @@ gem 'faraday'
 gem 'faker'
 
 gem "simple_calendar", "~> 2.4"
+
+gem "omniauth-google-oauth2"
+
+gem "omniauth-rails_csrf_protection"
