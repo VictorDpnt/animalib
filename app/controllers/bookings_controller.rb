@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @booking.user = @professional
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to animal_bookings_path(@booking.animal.id) }
+        format.html { redirect_to profile_path }
         format.json
       else
         format.html { render "users/show", status: :unprocessable_entity }

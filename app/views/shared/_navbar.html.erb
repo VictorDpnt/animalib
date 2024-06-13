@@ -1,53 +1,66 @@
-<div class="navbar navbar-expand-sm navbar-lewagon sticky-top nav-other shadow position-relative">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navnav-container">
+  <div class="container-fluid nav-nav-contain">
+
     <%= link_to root_path, class: "navbar-brand" do %>
       <div class="d-flex">
         <h5 class="fw-bold mt-2 text-light mx-3">AnimaLib <i class="fa-solid fa-paw"></i></h5>
       </div>
     <% end %>
 
-  <div class="container-fluid">
-    <%= render partial: "shared/navbar_searchbar" %>
-     <%= link_to animals_path do %>
-      <button class='fa-solid fa-paw btn-pet'> </button>
-    <% end %>
-   <%= link_to profile_path do %>
-      <button class='fa-solid fa-calendar-days btn-booking'> </button>
-    <% end %>
-     <%= link_to favorites_path do %>
-      <button class='fa-solid fa-heart btn-favorite'> </button>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <div class="the-searh-bar">
+      <%= render partial: "shared/navbar_searchbar" %>
+    </div>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <% if user_signed_in? %>
-        <ul class="navbar-nav ms-auto align-items-center">
-        </ul>
-        <ul class="navbar-nav me-auto align-items-center">
-          <li class="nav-item dropdown">
-          <a href="#" class="avatar position-relative mx-3" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.photo.attached? %>
-             <%= cl_image_tag current_user.photo.key, class:"avatar border border-light" %>
-              <% else %>
-             <%= image_tag "user (1).png", class: "avatar", alt: "dropdown menu" %>
+
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%= link_to animals_path do %>
+              <i class="fa-solid fa-paw"></i>
             <% end %>
-              <%# <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"> %>
-                <span class="visually-hidden">New alerts</span>
-              </span>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end rounded" aria-labelledby="navbarDropdown">
-              <p class="text-center text-black border-bottom pb-1 fw-bold fs-6"><%= current_user.first_name%> <%= current_user.last_name%></p>
-
-              <%= link_to "My profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "<i class='fa-solid fa-right-to-bracket'></i>".html_safe + "  Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger " %>
-            </div>
-
           </li>
-        <% else %>
+
+
+          <li class="nav-item">
+            <%= link_to profile_path do %>
+              <i class="fa-solid fa-calendar-days"></i>
+            <% end %>
+          </li>
+
+
+          <li class="nav-item">
+            <%= link_to favorites_path do %>
+              <i class="fa-solid fa-heart"></i>
+            <% end %>
+          </li>
+
+          <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+              <a href="#" class="avatar position-relative mx-3" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if current_user.photo.attached? %>
+                  <%= cl_image_tag current_user.photo.key, class:"avatar border border-light" %>
+                <% else %>
+                  <%= image_tag "user (1).png", class: "avatar", alt: "dropdown menu" %>
+                <% end %>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <p class="text-center text-black border-bottom pb-1 fw-bold fs-6"><%= current_user.first_name%> <%= current_user.last_name%></p>
+                <%= link_to "My profile", profile_path, class: "dropdown-item" %>
+                <%= link_to "<i class='fa-solid fa-right-to-bracket text-danger'></i>".html_safe + "  Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger yepa " %>
+              </div>
+
+            </li>
+          <% else %>
             <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline btn-ghost text-light fw-bold mx-3" %>
-        <% end %>
+          <% end %>
+
       </ul>
+
     </div>
+
+
   </div>
 </div>

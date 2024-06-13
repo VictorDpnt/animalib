@@ -3,7 +3,7 @@
   border-top-right-radius: 0 !important ;
   border-bottom-right-radius: 0 !important ;
   height: 35px;
-  width: 400px !important;
+  // width: 400px !important;
   border-radius: 50px;
 
   &::placeholder {
@@ -48,8 +48,8 @@
   outline: none !important;
 }
 
-.profession-srh{
-   option{
+.profession-srh {
+  option {
     text-transform: capitalize;
-   }
+  }
 }
