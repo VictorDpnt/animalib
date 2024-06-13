@@ -12,10 +12,11 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:index, :destroy]
 
-  resources :bookings, only: [:edit, :update, :destroy]
+  resources :bookings, only: [:edit, :update, :destroy] do
+    resources :reviews, only: [:create]
+  end
 
   resource :profile, only: :show
-  resources :reviews, only: [:new, :create]
 
   resources :animals, except: [:show] do
     resources :health_records, only: [:create, :index]
