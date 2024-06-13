@@ -9,8 +9,6 @@
         <% end %>
       </div>
 
-
-
       <div class="infos-profile">
         <div class="top-infos">
           <div class="name">
@@ -33,6 +31,11 @@
             <%= link_to profile_path, class: ("under-line" if current_page?(profile_path)) do %>
               <i class="fa-solid fa-calendar-days"></i> All bookings
             <% end %>
+
+               <%= link_to favorites_path, class: ("under-line" if current_page?(favorites_path)) do %>
+              <i class="fa-solid fa-heart"></i> My Favorite
+            <% end %>
+
         </div>
   </div>
 </div>
