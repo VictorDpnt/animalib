@@ -15,8 +15,11 @@
           </div>
           <div class="profession">
           <%= link_to user_path(booking.user) do %>
-          <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
-
+            <% if booking.user.profession == "veterinarian" %>
+              <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+            <% else %>
+              <strong><%= booking.user.last_name.capitalize %></strong>
+            <% end %>
           <% end %>
             <em><%= booking.user.profession.capitalize %></em>
           </div>
@@ -26,7 +29,9 @@
         <p><strong>Date:</strong> <%= booking.date.strftime("%d/%m/%Y %H:%M") %></p>
         <p><strong>Address:</strong> <%= booking.user.address %></p>
         <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
-        <p><strong>Reason:</strong> <%= booking.reason %></p>
+        <% if booking.user.profession == "veterinarian" %>
+          <p><strong>Reason:</strong> <%= booking.reason %></p>
+        <% end %>
       </div>
       <div class="cancel-container mt-4">
         <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn-closee " %>
@@ -48,7 +53,11 @@
           </div>
           <div class="profession">
           <%= link_to user_path(booking.user) do %>
-          <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+            <% if booking.user.profession == "veterinarian" %>
+              <strong>Dr. <%= booking.user.last_name.capitalize %></strong>
+            <% else %>
+              <strong><%= booking.user.last_name.capitalize %></strong>
+            <% end %>
           <% end %>
             <em><%= booking.user.profession.capitalize %></em>
           </div>
@@ -58,7 +67,9 @@
         <p><strong>Date:</strong> <%= booking.date.strftime("%d/%m/%Y %H:%M") %></p>
         <p><strong>Address:</strong> <%= booking.user.address %></p>
         <p><strong>Phone:</strong> <%= booking.user.phone_number %></p>
-        <p><strong>Reason:</strong> <%= booking.reason %></p>
+        <% if booking.user.profession == "veterinarian" %>
+          <p><strong>Reason:</strong> <%= booking.reason %></p>
+        <% end %>
       </div>
       <div class="cancel-container mt-4">
         <button type="button" class="btn-submit" data-toggle="modal" data-target="#exampleModalCenter">
