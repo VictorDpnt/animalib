@@ -7,13 +7,10 @@ export default class extends Controller {
 
   connect() {
     this.modal = new bootstrap.Modal(this.modalTarget, {})
-    console.log(this.modal)
   }
 
   show(event) {
     const slotBtn = event.currentTarget;
-    console.log(slotBtn.dataset.path);
-    console.log(slotBtn.dataset.datetime);
     fetch(slotBtn.dataset.path + `?date=${slotBtn.dataset.datetime}`, {
       method: 'GET',
       headers: { "Accept": "Application/json" }
